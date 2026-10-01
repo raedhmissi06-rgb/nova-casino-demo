@@ -1,729 +1,432 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark-theme">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#121212">
-    <meta name="description" content="BETMAX | منصة الرهانات الرياضية والكازينو المباشر - أعلى الاحتمالات وسحوبات فورية">
-    <meta name="keywords" content="كازينو, رهان رياضي, كرة قدم, روليت, سلوتس, aviator, تونس, betting">
-    <title>BETMAX Enterprise | المنصة العالمية للرهانات والكازينو</title>
-
-    <!-- OpenGraph & Social Cards -->
-    <meta property="og:title" content="BETMAX Enterprise | المنصة العالمية للرهانات">
-    <meta property="og:description" content="سجل الآن واحصل على بونص 200% عند أول إيداع!">
-    <meta property="og:type" content="website">
-
-    <!-- Schema.org Structured Data (SEO & AI Indexing) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SportsMarket",
-      "name": "BETMAX Gaming Platform",
-      "url": "https://betmax.com",
-      "currenciesAccepted": "TND, USD, EUR",
-      "paymentAccepted": "Credit Card, Crypto, D17, Sobflous"
-    }
-    </script>
-
-    <!-- الخطوط والأيقونات الخارجية -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETMAX PRO - منصة الرهانات الرياضية المباشرة</title>
+    
+    <!-- خط Tajawal الأنيق -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+    <!-- مكتبة الأيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
-</head>
-<body id="appBody">
+    <style>
+        /* ==========================================================================
+           BETMAX PRO - ULTRA MODERN DARK THEMING (شامل وتلقائي)
+           ========================================================================== */
+        :root {
+            --bg-body: #0b0f19;
+            --bg-surface: #151d2a;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            --accent-gold: #fbbf24;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #27354a;
+            --radius: 12px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-    <!-- ========================================== -->
-    <!-- 1. TOP UTILITY BAR (شريط الأدوات العلوي)   -->
-    <!-- ========================================== -->
-    <div class="top-utility-bar">
-        <div class="container-fluid flex-between">
-            <div class="utility-left">
-                <span class="system-clock" id="systemClock"><i class="fa-regular fa-clock"></i> 00:00:00 (UTC+1)</span>
-                <span class="divider">|</span>
-                <a href="#mobile-app" class="utility-link"><i class="fa-solid fa-mobile-screen-button text-gold"></i> تطبيق الموبايل (Android/iOS)</a>
-                <span class="divider">|</span>
-                <a href="#mirror-links" class="utility-link"><i class="fa-solid fa-link"></i> الروابط البديلة (Mirrors)</a>
-            </div>
-            <div class="utility-right">
-                <div class="utility-dropdown">
-                    <i class="fa-solid fa-chart-line text-gold"></i>
-                    <select id="oddsFormatSelect" aria-label="تنسيق الاحتمالات">
-                        <option value="decimal">تنسيق عشري (1.95)</option>
-                        <option value="fractional">تنسيق كسرية (9/10)</option>
-                        <option value="american">تنسيق أمريكي (+110)</option>
-                    </select>
-                </div>
-                <div class="utility-dropdown">
-                    <i class="fa-solid fa-coins text-gold"></i>
-                    <select id="globalCurrencySelect" aria-label="عملة المنصة">
-                        <option value="TND">TND (دينار تونسي)</option>
-                        <option value="USD">USD ($)</option>
-                        <option value="EUR">EUR (€)</option>
-                        <option value="USDT">USDT (Crypto)</option>
-                    </select>
-                </div>
-                <div class="utility-dropdown">
-                    <i class="fa-solid fa-globe text-gold"></i>
-                    <select id="globalLangSelect" aria-label="اللغات">
-                        <option value="ar" selected>العربية (تونس)</option>
-                        <option value="fr">Français</option>
-                        <option value="en">English</option>
-                    </select>
-                </div>
-            </div>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); direction: rtl; min-height: 100vh; padding-bottom: 70px; }
+
+        a { color: inherit; text-decoration: none; }
+        button, input, select { font-family: inherit; border: none; outline: none; }
+
+        /* Top Utility Header */
+        .top-bar {
+            background: #070a10;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .top-bar select {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background: var(--bg-surface);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .logo { font-size: 22px; font-weight: 800; color: var(--accent-gold); display: flex; align-items: center; gap: 8px; }
+        
+        .search-box {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            background: var(--bg-body);
+            color: #fff;
+            padding: 10px 40px 10px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .search-box i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+
+        .user-panel { display: flex; align-items: center; gap: 12px; }
+        .balance-badge {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+        .btn-deposit {
+            background: var(--accent-gold);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-deposit:hover { transform: scale(1.03); }
+
+        /* App Main Grid */
+        .app-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr 340px;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Sidebar Styling */
+        .sidebar { background: var(--bg-surface); border-radius: var(--radius); padding: 15px; border: 1px solid var(--border-color); }
+        .sidebar-title { font-size: 15px; font-weight: 700; color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .menu-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .menu-item:hover, .menu-item.active { background: var(--bg-card); color: var(--accent-gold); }
+        .menu-item .flag-img { width: 20px; height: 14px; border-radius: 2px; object-fit: cover; }
+
+        /* Main Content Banner & Canvas */
+        .promo-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80');
+            background-blend-mode: overlay;
+            background-size: cover;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .promo-banner h1 { font-size: 28px; margin-bottom: 10px; color: #fff; }
+
+        /* Pitch Canvas Visualizer */
+        .pitch-box {
+            position: relative;
+            background: #14381a;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 2px solid var(--border-color);
+        }
+        #livePitchCanvas { width: 100%; height: 200px; display: block; }
+        .pitch-overlay {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* Matches Cards */
+        .section-header { font-size: 18px; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .match-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            transition: 0.2s;
+        }
+        .match-card:hover { border-color: var(--accent-gold); }
+        .match-teams { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; }
+        .team { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+        .team img { width: 32px; height: 32px; object-fit: contain; }
+
+        .odds-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .odd-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .odd-btn:hover { background: var(--bg-hover); border-color: var(--accent-gold); }
+        .odd-btn.selected { background: var(--accent-gold); color: #000; }
+        .odd-btn .val { color: var(--accent-green); }
+        .odd-btn.selected .val { color: #000; }
+
+        /* Flash Effects */
+        .flash-green { animation: flashGreen 1.2s ease; }
+        .flash-red { animation: flashRed 1.2s ease; }
+        @keyframes flashGreen { 0% { background: rgba(16, 185, 129, 0.7); } 100% { background: var(--bg-card); } }
+        @keyframes flashRed { 0% { background: rgba(239, 68, 68, 0.7); } 100% { background: var(--bg-card); } }
+
+        /* Betslip Sidebar */
+        .betslip-widget {
+            background: var(--bg-surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            position: sticky;
+            top: 80px;
+        }
+        .betslip-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); }
+        .betslip-card-item {
+            background: var(--bg-card);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-right: 4px solid var(--accent-gold);
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 1024px) {
+            .app-layout { grid-template-columns: 1fr; }
+            .sidebar-left, .betslip-widget { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Bar Settings -->
+    <div class="top-bar">
+        <div id="systemClock"><i class="fa-regular fa-clock"></i> 11:30:00 (UTC+1)</div>
+        <div style="display: flex; gap: 10px;">
+            <select>
+                <option>TND (دينار تونسي)</option>
+                <option>EUR (€)</option>
+                <option>USD ($)</option>
+            </select>
+            <select>
+                <option>العربية (تونس)</option>
+                <option>English</option>
+                <option>Français</option>
+            </select>
         </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 2. MAIN HEADER & USER PANEL (الهيدر الرئيسي) -->
-    <!-- ========================================== -->
-    <header class="main-header sticky-header">
-        <div class="container-fluid header-grid">
-            
-            <!-- اللوغو -->
-            <div class="brand-container">
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="القائمة"><i class="fa-solid fa-bars"></i></button>
-                <a href="index.html" class="brand-logo">
-                    <span class="logo-text-bold">BET</span><span class="logo-text-accent">MAX</span>
-                    <span class="badge-pro">PRO</span>
-                </a>
+    <!-- 2. Main Navigation Bar -->
+    <header class="main-nav">
+        <div class="logo">
+            <i class="fa-solid fa-bolt text-gold"></i> BETMAX PRO
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="globalSearchInput" placeholder="ابحث عن مباراة، دوري، أو فريق...">
+        </div>
+
+        <div class="user-panel">
+            <div class="balance-badge">
+                <i class="fa-solid fa-wallet"></i> <span id="userMainBalance">1,450.00</span> TND
             </div>
-
-            <!-- شريط البحث العالمي -->
-            <div class="global-search-bar">
-                <div class="search-input-wrapper">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="globalSearchInput" placeholder="ابحث عن مباراة، دوري، فريق، أو لعبة كازينو..." autocomplete="off">
-                    <button class="search-clear-btn" id="searchClearBtn" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div class="search-results-dropdown" id="searchResultsDropdown"></div>
-            </div>
-
-            <!-- لوحة المستخدم والتسجيل -->
-            <div class="user-action-area">
-                
-                <!-- حالة قبل تسجيل الدخول (Guest Mode) -->
-                <div class="guest-actions" id="guestActionsGroup">
-                    <button class="btn btn-outline-light" onclick="document.getElementById('loginModal').showModal()">
-                        <i class="fa-solid fa-right-to-bracket"></i> <span>تسجيل الدخول</span>
-                    </button>
-                    <button class="btn btn-primary-gold pulse-btn" onclick="document.getElementById('registerModal').showModal()">
-                        <i class="fa-solid fa-user-plus"></i> <span>إنشاء حساب</span>
-                    </button>
-                </div>
-
-                <!-- حالة بعد تسجيل الدخول (Logged-in Mode) -->
-                <div class="user-logged-panel" id="userLoggedPanel" style="display: none;">
-                    <div class="wallet-quick-view" id="walletQuickView">
-                        <div class="wallet-balance">
-                            <span class="balance-title">الرصيد الرئيسي:</span>
-                            <span class="balance-value" id="userMainBalance">1,450.00</span>
-                            <span class="balance-currency">TND</span>
-                        </div>
-                        <div class="bonus-balance">
-                            <span class="bonus-tag">بونص:</span>
-                            <span id="userBonusBalance">300.00</span> TND
-                        </div>
-                    </div>
-
-                    <button class="btn btn-success-deposit" id="triggerDepositDrawer">
-                        <i class="fa-solid fa-wallet"></i> <span>إيداع</span>
-                    </button>
-
-                    <div class="user-notifications-dropdown">
-                        <button class="icon-btn" id="notificationBtn">
-                            <i class="fa-regular fa-bell"></i>
-                            <span class="notification-badge">3</span>
-                        </button>
-                    </div>
-
-                    <div class="user-avatar-menu">
-                        <button class="avatar-btn" id="userAvatarBtn">
-                            <img src="https://picsum.photos/40/40?random=88" alt="User Avatar" class="avatar-img">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
+            <button class="btn-deposit" id="triggerDepositDrawer">
+                <i class="fa-solid fa-plus-circle"></i> إيداع
+            </button>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!-- 3. NAVIGATION MENU (شريط الأقسام الأساسي)   -->
-    <!-- ========================================== -->
-    <nav class="primary-nav">
-        <div class="container-fluid">
-            <ul class="nav-menu-list">
-                <li class="nav-item active"><a href="#home" class="nav-link"><i class="fa-solid fa-house"></i> الرئيسية</a></li>
-                <li class="nav-item"><a href="#sports" class="nav-link"><i class="fa-solid fa-futbol"></i> الرياضة <span class="badge-count bg-dark">1280</span></a></li>
-                <li class="nav-item highlight-live"><a href="#live" class="nav-link"><i class="fa-solid fa-satellite-dish pulse-red"></i> المباشر <span class="badge-count bg-danger">64</span></a></li>
-                <li class="nav-item"><a href="#casino" class="nav-link"><i class="fa-solid fa-dice"></i> الكازينو</a></li>
-                <li class="nav-item"><a href="#live-casino" class="nav-link"><i class="fa-solid fa-headset"></i> كازينو مباشر</a></li>
-                <li class="nav-item crash-game-link"><a href="#aviator" class="nav-link"><i class="fa-solid fa-plane-departure text-red"></i> Aviator (Crash)</a></li>
-                <li class="nav-item"><a href="#esports" class="nav-link"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</a></li>
-                <li class="nav-item"><a href="#virtuals" class="nav-link"><i class="fa-solid fa-horse"></i> ألعاب افتراضية</a></li>
-                <li class="nav-item"><a href="#toto" class="nav-link"><i class="fa-solid fa-ticket"></i> TOTO / البروموسبور</a></li>
-                <li class="nav-item promo-item"><a href="#promotions" class="nav-link text-gold"><i class="fa-solid fa-gift"></i> العروض والجوائز</a></li>
+    <!-- 3. App Main Grid Layout -->
+    <div class="app-layout">
+
+        <!-- Left Sidebar: Leagues & Sports -->
+        <aside class="sidebar sidebar-left">
+            <div class="sidebar-title"><i class="fa-solid fa-trophy"></i> البطولات الكبرى</div>
+            <ul class="menu-list">
+                <li class="menu-item active">
+                    <span><img src="https://flagcdn.com/w40/tn.png" class="flag-img" alt="Tunisia"> الرابطة التونسية</span>
+                    <span class="text-muted">12</span>
+                </li>
+                <li class="menu-item">
+                    <span><img src="https://flagcdn.com/w40/gb.png" class="flag-img" alt="UK"> الدوري الإنجليزي</span>
+                    <span class="text-muted">88</span>
+                </li>
+                <li class="menu-item">
+                    <span><img src="https://flagcdn.com/w40/es.png" class="flag-img" alt="Spain"> الدوري الإسباني</span>
+                    <span class="text-muted">45</span>
+                </li>
+                <li class="menu-item">
+                    <span><img src="https://flagcdn.com/w40/eu.png" class="flag-img" alt="EU"> دوري أبطال أوروبا</span>
+                    <span class="text-muted">16</span>
+                </li>
             </ul>
-        </div>
-    </nav>
 
-    <!-- ========================================== -->
-    <!-- 4. APP LAYOUT CONTAINER (الهيكل الثلاثي)  -->
-    <!-- ========================================== -->
-    <div class="app-main-wrapper">
-        <div class="container-fluid layout-grid">
+            <div class="sidebar-title" style="margin-top: 25px;"><i class="fa-solid fa-futbol"></i> الرياضات</div>
+            <ul class="menu-list">
+                <li class="menu-item"><span><i class="fa-solid fa-futbol text-gold"></i> كرة القدم</span> <span>850</span></li>
+                <li class="menu-item"><span><i class="fa-solid fa-basketball text-gold"></i> كرة السلة</span> <span>210</span></li>
+                <li class="menu-item"><span><i class="fa-solid fa-baseball-bat-ball text-gold"></i> التنس</span> <span>94</span></li>
+            </ul>
+        </aside>
 
-            <!-- --------------------------------------- -->
-            <!-- 4.1 LEFT SIDEBAR (الأشرطة والدوريات)   -->
-            <!-- --------------------------------------- -->
-            <aside class="app-sidebar-left">
+        <!-- Center Main Content -->
+        <main class="main-content">
+            
+            <!-- Hero Promotional Banner -->
+            <div class="promo-banner">
+                <h1>مكافأة الإيداع الأول 100%</h1>
+                <p>احصل على ما يصل إلى 500 دينار بونس عند أول إيداع لك اليوم!</p>
+            </div>
+
+            <!-- Pitch Visualizer Canvas -->
+            <div class="pitch-box">
+                <canvas id="livePitchCanvas" width="600" height="200"></canvas>
+                <div class="pitch-overlay" id="pitchEventOverlay">
+                    <i class="fa-solid fa-futbol text-gold pulse"></i> هجمة مرتدة سريعة!
+                </div>
+            </div>
+
+            <!-- Live Matches Section -->
+            <div class="section-header">
+                <i class="fa-solid fa-circle-dot text-danger pulse"></i> المباريات المباشرة الآن
+            </div>
+
+            <!-- Match Card 1 -->
+            <div class="match-card match-row-card">
+                <div class="flex-between text-muted" style="font-size: 13px;">
+                    <span><i class="fa-solid fa-trophy"></i> الرابطة التونسية المحترفة</span>
+                    <span class="text-danger font-bold"><i class="fa-solid fa-stopwatch"></i> 34' الشوط الأول</span>
+                </div>
+
+                <div class="match-teams">
+                    <div class="team">
+                        <img src="https://upload.wikimedia.org/wikipedia/fr/7/76/Esp%C3%A9rance_Sportive_de_Tunis.svg" alt="EST">
+                        <span>الترجي الرياضي</span>
+                    </div>
+                    <div style="font-size: 20px; font-weight: 800; color: var(--accent-gold);">1 - 0</div>
+                    <div class="team">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Etoile-du-sahel.svg" alt="ESS">
+                        <span>النجم الساحلي</span>
+                    </div>
+                </div>
+
+                <div class="odds-group">
+                    <button class="odd-btn" data-match-id="m1" data-match-title="الترجي vs النجم الساحلي" data-pick="1" data-odd="2.10">
+                        <span>1 (الترجي)</span> <span class="val">2.10</span>
+                    </button>
+                    <button class="odd-btn" data-match-id="m1" data-match-title="الترجي vs النجم الساحلي" data-pick="X" data-odd="3.10">
+                        <span>X (تعادل)</span> <span class="val">3.10</span>
+                    </button>
+                    <button class="odd-btn" data-match-id="m1" data-match-title="الترجي vs النجم الساحلي" data-pick="2" data-odd="3.40">
+                        <span>2 (النجم)</span> <span class="val">3.40</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Match Card 2 -->
+            <div class="match-card match-row-card">
+                <div class="flex-between text-muted" style="font-size: 13px;">
+                    <span><i class="fa-solid fa-trophy"></i> الرابطة التونسية المحترفة</span>
+                    <span class="text-danger font-bold"><i class="fa-solid fa-stopwatch"></i> 62' الشوط الثاني</span>
+                </div>
+
+                <div class="match-teams">
+                    <div class="team">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Club_Africain_logo.svg" alt="CA">
+                        <span>النادي الأفريقي</span>
+                    </div>
+                    <div style="font-size: 20px; font-weight: 800; color: var(--accent-gold);">0 - 0</div>
+                    <div class="team">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/CS_Sfaxien.png" alt="CSS">
+                        <span>النادي الصفاقسي</span>
+                    </div>
+                </div>
+
+                <div class="odds-group">
+                    <button class="odd-btn" data-match-id="m2" data-match-title="الأفريقي vs الصفاقسي" data-pick="1" data-odd="1.95">
+                        <span>1 (الأفريقي)</span> <span class="val">1.95</span>
+                    </button>
+                    <button class="odd-btn" data-match-id="m2" data-match-title="الأفريقي vs الصفاقسي" data-pick="X" data-odd="3.00">
+                        <span>X (تعادل)</span> <span class="val">3.00</span>
+                    </button>
+                    <button class="odd-btn" data-match-id="m2" data-match-title="الأفريقي vs الصفاقسي" data-pick="2" data-odd="3.80">
+                        <span>2 (الصفاقسي)</span> <span class="val">3.80</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Right Sidebar: Betslip Widget -->
+        <aside class="betslip-widget" id="betslipWidget">
+            <div class="betslip-header">
+                <h3><i class="fa-solid fa-ticket text-gold"></i> قسيمة الرهان</h3>
+                <span class="betslip-count-badge" id="betslipCount">0</span>
+            </div>
+
+            <div id="betslipItemsContainer" class="betslip-items-container">
+                <div style="text-align: center; color: var(--text-muted); padding: 30px 0;">
+                    <i class="fa-solid fa-ticket-simple" style="font-size: 32px; margin-bottom: 10px;"></i>
+                    <p>انقر على أي احتمال (Odd) لإضافته للقسيمة</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <div class="flex-between" style="margin-bottom: 8px;">
+                    <span class="text-muted">مجموع الاحتمالات:</span>
+                    <span id="betslipTotalOdds" style="font-weight: 800; color: var(--accent-gold);">0.00</span>
+                </div>
                 
-                <!-- فلتر وقت المباريات -->
-                <div class="sidebar-widget">
-                    <div class="widget-title"><i class="fa-regular fa-calendar-days text-gold"></i> فلتر المباريات</div>
-                    <div class="time-filter-buttons">
-                        <button class="btn-time active" data-time="all">الكل</button>
-                        <button class="btn-time" data-time="1h">1 ساعة</button>
-                        <button class="btn-time" data-time="3h">3 ساعات</button>
-                        <button class="btn-time" data-time="today">اليوم</button>
-                    </div>
+                <div style="margin-bottom: 12px;">
+                    <input type="number" id="betslipStakeInput" value="10" min="1" style="width: 100%; background: var(--bg-body); color: #fff; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
                 </div>
 
-                <!-- الدوريات الكبرى (Top Leagues) -->
-                <div class="sidebar-widget">
-                    <div class="widget-title"><i class="fa-solid fa-fire text-red"></i> البطولات الكبرى</div>
-                    <ul class="quick-leagues-list">
-                        <li><a href="#" data-league="tunisia-p1"><img src="https://flagcdn.com/24x18/tn.png" alt="تونس"> الرابطة التونسية الأولى <span class="badge">6</span></a></li>
-                        <li><a href="#" data-league="ucl"><img src="https://flagcdn.com/24x18/eu.png" alt="أوروبا"> دوري أبطال أوروبا <span class="badge">12</span></a></li>
-                        <li><a href="#" data-league="epl"><img src="https://flagcdn.com/24x18/gb.png" alt="إنجلترا"> الدوري الإنجليزي الممتاز <span class="badge">10</span></a></li>
-                        <li><a href="#" data-league="laliga"><img src="https://flagcdn.com/24x18/es.png" alt="إسبانيا"> الدوري الإسباني <span class="badge">8</span></a></li>
-                        <li><a href="#" data-league="seriea"><img src="https://flagcdn.com/24x18/it.png" alt="إيطاليا"> الدوري الإيطالي <span class="badge">9</span></a></li>
-                        <li><a href="#" data-league="bundesliga"><img src="https://flagcdn.com/24x18/de.png" alt="ألمانيا"> الدوري الألماني <span class="badge">7</span></a></li>
-                        <li><a href="#" data-league="ligue1"><img src="https://flagcdn.com/24x18/fr.png" alt="فرنسا"> الدوري الفرنسي <span class="badge">5</span></a></li>
-                    </ul>
+                <div class="flex-between" style="margin-bottom: 15px;">
+                    <span class="text-muted">الربح المحتمل:</span>
+                    <span id="betslipPotentialPayout" style="font-weight: 800; color: var(--accent-green);">0.00 TND</span>
                 </div>
 
-                <!-- قائمة جميع الرياضات (Sports Navigation Tree) -->
-                <div class="sidebar-widget">
-                    <div class="widget-title"><i class="fa-solid fa-list-ul"></i> تصفح الرياضات</div>
-                    <div class="sports-tree-menu" id="sportsTreeMenu">
-                        
-                        <!-- عنصر كرة القدم -->
-                        <div class="tree-category active">
-                            <div class="tree-header" data-toggle="tree-1">
-                                <span><i class="fa-solid fa-futbol text-gold"></i> كرة القدم</span>
-                                <span class="count">850</span>
-                            </div>
-                            <ul class="tree-sub-menu" id="tree-1">
-                                <li><a href="#">تونس (الرابطة 1)</a></li>
-                                <li><a href="#">إنجلترا (البريميرليغ)</a></li>
-                                <li><a href="#">إسبانيا (الليغا)</a></li>
-                                <li><a href="#">دوري أبطال إفريقيا</a></li>
-                            </ul>
-                        </div>
+                <button class="btn-deposit" id="placeBetBtn" style="width: 100%; padding: 12px;" disabled>
+                    تأكيد الرهان الان
+                </button>
+            </div>
+        </aside>
 
-                        <!-- عنصر كرة السلة -->
-                        <div class="tree-category">
-                            <div class="tree-header" data-toggle="tree-2">
-                                <span><i class="fa-solid fa-basketball"></i> كرة السلة</span>
-                                <span class="count">210</span>
-                            </div>
-                            <ul class="tree-sub-menu" id="tree-2" style="display:none;">
-                                <li><a href="#">أمريكا (NBA)</a></li>
-                                <li><a href="#">اليوروليغ</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- عنصر التنس -->
-                        <div class="tree-category">
-                            <div class="tree-header" data-toggle="tree-3">
-                                <span><i class="fa-solid fa-baseball-bat-ball"></i> التنس</span>
-                                <span class="count">115</span>
-                            </div>
-                            <ul class="tree-sub-menu" id="tree-3" style="display:none;">
-                                <li><a href="#">بطولات ATP</a></li>
-                                <li><a href="#">بطولات WTA</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- عناصر إضافية -->
-                        <div class="tree-category">
-                            <div class="tree-header"><span><i class="fa-solid fa-volleyball"></i> الكرة الطائرة</span><span class="count">42</span></div>
-                        </div>
-                        <div class="tree-category">
-                            <div class="tree-header"><span><i class="fa-solid fa-hand-fist"></i> الفنون القتالية UFC</span><span class="count">18</span></div>
-                        </div>
-                        <div class="tree-category">
-                            <div class="tree-header"><span><i class="fa-solid fa-table-tennis-paddle-ball"></i> تنس الطاولة</span><span class="count">95</span></div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </aside>
-
-            <!-- --------------------------------------- -->
-            <!-- 4.2 CENTER CONTENT AREA (المحتوى الأوسط) -->
-            <!-- --------------------------------------- -->
-            <main class="app-main-content">
-                
-                <!-- 1. بنر العروض الترويجية (Hero Carousel Banner) -->
-                <section class="hero-carousel-section">
-                    <div class="carousel-container">
-                        <div class="slide-card active-slide" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
-                            <div class="slide-content">
-                                <span class="badge-promo-gold">بونص الترحيب الكاظم</span>
-                                <h1>احصل على 200% بونص يصل إلى 500 TND!</h1>
-                                <p>ضاعف إيداعك الأول في الحين واستمتع بأفضل الاحتمالات في عالم الرياضات والكازينو.</p>
-                                <button class="btn btn-gold-lg" onclick="document.getElementById('registerModal').showModal()">احصل على البونص الآن</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 2. محاكي النقل المباشر وتتبع المباراة (Live Match Visualizer Tracker) -->
-                <section class="live-visualizer-widget" id="liveMatchTrackerWidget">
-                    <div class="visualizer-header flex-between">
-                        <div class="match-meta-info">
-                            <span class="badge-live-dot">LIVE</span>
-                            <span class="league-title">الرابطة التونسية الأولى - ملعب رادس</span>
-                        </div>
-                        <div class="match-score-header">
-                            <span class="team-name">الترجي الرياضي</span>
-                            <span class="score-display">2 - 1</span>
-                            <span class="team-name">النجم الساحلي</span>
-                            <span class="match-timer text-red">78' الشوط الثاني</span>
-                        </div>
-                    </div>
-                    <!-- شاشة المحاكاة الرسومية للكرة في الملعب -->
-                    <div class="pitch-canvas-wrapper">
-                        <canvas id="livePitchCanvas" width="700" height="220"></canvas>
-                        <div class="pitch-event-overlay" id="pitchEventOverlay">
-                            <i class="fa-solid fa-futbol text-gold pulse"></i> هجمة خطيرة للترجي!
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 3. جدول المباريات المباشرة والأسواق (Live Betting Feed) -->
-                <section class="live-sports-feed">
-                    <div class="section-title-bar flex-between">
-                        <h3><i class="fa-solid fa-satellite-dish text-red"></i> المباريات المباشرة الآن</h3>
-                        <div class="market-selector-tabs">
-                            <button class="market-tab active" data-market="1x2">1X2 (النتيجة)</button>
-                            <button class="market-tab" data-market="doubleChance">فرصة مزدوجة</button>
-                            <button class="market-tab" data-market="totals">المجموع (Over/Under)</button>
-                            <button class="market-tab" data-market="btts">كلا الفريقين يسجل</button>
-                        </div>
-                    </div>
-
-                    <!-- قائمة جدول المباريات -->
-                    <div class="matches-table-container">
-                        
-                        <!-- مباراة 1 -->
-                        <div class="match-row-card" data-match-id="1001">
-                            <div class="match-cell-info">
-                                <span class="favorite-star"><i class="fa-regular fa-star"></i></span>
-                                <div class="teams-block">
-                                    <div class="team-row"><span class="name">الترجي الرياضي</span> <span class="score">2</span></div>
-                                    <div class="team-row"><span class="name">النجم الساحلي</span> <span class="score">1</span></div>
-                                </div>
-                                <div class="match-time-block">
-                                    <span class="time-status live">78'</span>
-                                    <i class="fa-solid fa-tv text-gold" title="بث مباشر متوفر"></i>
-                                </div>
-                            </div>
-
-                            <!-- الأودز 1X2 -->
-                            <div class="match-cell-odds">
-                                <button class="odd-btn" data-match-id="1001" data-match-title="الترجي vs النجم" data-pick="1" data-odd="1.35">
-                                    <span class="pick">1</span>
-                                    <span class="val">1.35</span>
-                                </button>
-                                <button class="odd-btn" data-match-id="1001" data-match-title="الترجي vs النجم" data-pick="X" data-odd="4.20">
-                                    <span class="pick">X</span>
-                                    <span class="val">4.20</span>
-                                </button>
-                                <button class="odd-btn odd-up" data-match-id="1001" data-match-title="الترجي vs النجم" data-pick="2" data-odd="8.50">
-                                    <span class="pick">2</span>
-                                    <span class="val">8.50 <i class="fa-solid fa-caret-up"></i></span>
-                                </button>
-                            </div>
-
-                            <div class="match-cell-more">
-                                <button class="btn-more-markets">+145</button>
-                            </div>
-                        </div>
-
-                        <!-- مباراة 2 -->
-                        <div class="match-row-card" data-match-id="1002">
-                            <div class="match-cell-info">
-                                <span class="favorite-star"><i class="fa-regular fa-star"></i></span>
-                                <div class="teams-block">
-                                    <div class="team-row"><span class="name">ريال مدريد</span> <span class="score">0</span></div>
-                                    <div class="team-row"><span class="name">برشلونة</span> <span class="score">0</span></div>
-                                </div>
-                                <div class="match-time-block">
-                                    <span class="time-status live">34'</span>
-                                </div>
-                            </div>
-
-                            <div class="match-cell-odds">
-                                <button class="odd-btn" data-match-id="1002" data-match-title="ريال مدريد vs برشلونة" data-pick="1" data-odd="2.10">
-                                    <span class="pick">1</span>
-                                    <span class="val">2.10</span>
-                                </button>
-                                <button class="odd-btn" data-match-id="1002" data-match-title="ريال مدريد vs برشلونة" data-pick="X" data-odd="3.40">
-                                    <span class="pick">X</span>
-                                    <span class="val">3.40</span>
-                                </button>
-                                <button class="odd-btn odd-down" data-match-id="1002" data-match-title="ريال مدريد vs برشلونة" data-pick="2" data-odd="3.00">
-                                    <span class="pick">2</span>
-                                    <span class="val">3.00 <i class="fa-solid fa-caret-down"></i></span>
-                                </button>
-                            </div>
-
-                            <div class="match-cell-more">
-                                <button class="btn-more-markets">+230</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- 4. قسم ألعاب الكازينو والسلوتس (Casino Lobby Grid) -->
-                <section class="casino-lobby-section" id="casinoSection">
-                    <div class="section-title-bar flex-between">
-                        <h3><i class="fa-solid fa-gamepad text-gold"></i> الكازينو وألعاب السلوتس</h3>
-                        <div class="provider-filter">
-                            <select id="casinoProviderSelect">
-                                <option value="all">جميع المزودين (All Providers)</option>
-                                <option value="pragmatic">Pragmatic Play</option>
-                                <option value="spribe">Spribe</option>
-                                <option value="evolution">Evolution Gaming</option>
-                                <option value="netent">NetEnt</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="casino-grid-layout">
-                        
-                        <!-- لعبة Aviator Crash -->
-                        <div class="casino-card-item hot-game">
-                            <div class="card-thumb" style="background-image: url('https://picsum.photos/300/200?random=11');">
-                                <span class="badge-tag crash">CRASH</span>
-                                <div class="thumb-hover-overlay">
-                                    <button class="btn-play-game" onclick="launchGame('aviator')"><i class="fa-solid fa-play"></i> العب الآن</button>
-                                    <button class="btn-demo-game" onclick="launchGameDemo('aviator')">تجربة مجانية</button>
-                                </div>
-                            </div>
-                            <div class="card-details">
-                                <h4>Aviator</h4>
-                                <span class="provider">Spribe</span>
-                            </div>
-                        </div>
-
-                        <!-- لعبة Gates of Olympus -->
-                        <div class="casino-card-item">
-                            <div class="card-thumb" style="background-image: url('https://picsum.photos/300/200?random=12');">
-                                <span class="badge-tag hot">HOT</span>
-                                <div class="thumb-hover-overlay">
-                                    <button class="btn-play-game" onclick="launchGame('olympus')"><i class="fa-solid fa-play"></i> العب الآن</button>
-                                    <button class="btn-demo-game">تجربة مجانية</button>
-                                </div>
-                            </div>
-                            <div class="card-details">
-                                <h4>Gates of Olympus</h4>
-                                <span class="provider">Pragmatic Play</span>
-                            </div>
-                        </div>
-
-                        <!-- لعبة Roulette Live -->
-                        <div class="casino-card-item">
-                            <div class="card-thumb" style="background-image: url('https://picsum.photos/300/200?random=13');">
-                                <span class="badge-tag live">LIVE</span>
-                                <div class="thumb-hover-overlay">
-                                    <button class="btn-play-game" onclick="launchGame('roulette')"><i class="fa-solid fa-play"></i> العب الآن</button>
-                                </div>
-                            </div>
-                            <div class="card-details">
-                                <h4>Lightning Roulette</h4>
-                                <span class="provider">Evolution</span>
-                            </div>
-                        </div>
-
-                        <!-- لعبة Sweet Bonanza -->
-                        <div class="casino-card-item">
-                            <div class="card-thumb" style="background-image: url('https://picsum.photos/300/200?random=14');">
-                                <div class="thumb-hover-overlay">
-                                    <button class="btn-play-game" onclick="launchGame('bonanza')"><i class="fa-solid fa-play"></i> العب الآن</button>
-                                </div>
-                            </div>
-                            <div class="card-details">
-                                <h4>Sweet Bonanza</h4>
-                                <span class="provider">Pragmatic Play</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-            </main>
-
-            <!-- --------------------------------------- -->
-            <!-- 4.3 RIGHT SIDEBAR (قسيمة الرهان - Betslip)-->
-            <!-- --------------------------------------- -->
-            <aside class="app-sidebar-right">
-                
-                <div class="betslip-container-widget" id="betslipWidget">
-                    <div class="betslip-header flex-between">
-                        <h4><i class="fa-solid fa-receipt text-gold"></i> قسيمة الرهان</h4>
-                        <span class="betslip-count-badge" id="betslipCount">0</span>
-                    </div>
-
-                    <!-- تبويبات أنواع الرهان -->
-                    <div class="betslip-type-tabs">
-                        <button class="type-btn active" data-type="single">فردي</button>
-                        <button class="type-btn" data-type="accumulator">تراكمي (Combined)</button>
-                        <button class="type-btn" data-type="system">نظام (System)</button>
-                    </div>
-
-                    <!-- قائمة الاختيارات المضافة بـ JS -->
-                    <div class="betslip-items-scroll" id="betslipItemsContainer">
-                        <div class="empty-betslip-state" id="emptyBetslipState">
-                            <i class="fa-solid fa-ticket-simple empty-icon"></i>
-                            <p>انقر على أي احتمال (Odd) لإضافته مباشرة إلى قسيمة الرهان الخاصة بك.</p>
-                        </div>
-                    </div>
-
-                    <!-- قسم الحسابات وتأكيد الرهان -->
-                    <div class="betslip-calculation-footer">
-                        <div class="calc-row">
-                            <span>إجمالي الاحتمالات:</span>
-                            <strong id="betslipTotalOdds">0.00</strong>
-                        </div>
-                        <div class="stake-input-group">
-                            <label for="betslipStakeInput">مبلغ الرهان (TND):</label>
-                            <input type="number" id="betslipStakeInput" value="10" min="1" step="1">
-                        </div>
-                        
-                        <!-- أزرار المبالغ السريعة -->
-                        <div class="quick-stake-pills">
-                            <button class="btn-pill" data-stake="5">+5</button>
-                            <button class="btn-pill" data-stake="10">+10</button>
-                            <button class="btn-pill" data-stake="50">+50</button>
-                            <button class="btn-pill" data-stake="100">+100</button>
-                        </div>
-
-                        <div class="calc-row highlight-payout">
-                            <span>الربح المحتمل:</span>
-                            <strong class="text-gold" id="betslipPotentialPayout">0.00 TND</strong>
-                        </div>
-
-                        <div class="betslip-options">
-                            <label class="checkbox-container">
-                                <input type="checkbox" id="acceptOddsChanges" checked>
-                                <span class="checkmark"></span>
-                                قبول تغييرات الاحتمالات تلقائياً
-                            </label>
-                        </div>
-
-                        <button class="btn btn-place-bet-action" id="placeBetBtn" disabled>
-                            <i class="fa-solid fa-circle-check"></i> تأكيد الرهان الآن
-                        </button>
-                    </div>
-                </div>
-
-                <!-- مربع رهان اليوم التراكمي (Accumulator of the day) -->
-                <div class="sidebar-widget express-day-widget">
-                    <div class="widget-title"><i class="fa-solid fa-bolt text-gold"></i> تراكمي اليوم (+10% بونص)</div>
-                    <div class="express-content">
-                        <div class="express-match">الترجي × النجم ➔ (فوز 1)</div>
-                        <div class="express-match">ريال مدريد × برشلونة ➔ (أكثر من 2.5)</div>
-                        <div class="express-odds">الاحتمال الإجمالي: <strong>4.85</strong></div>
-                        <button class="btn btn-outline-gold btn-sm w-100">إضافة للقسيمة مع بونص 10%</button>
-                    </div>
-                </div>
-
-            </aside>
-
-        </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 5. DRAWERS & MODALS (النوافذ المنبثقة)     -->
-    <!-- ========================================== -->
-
-    <!-- 5.1 نافذة تسجيل الدخول (Login Modal) -->
-    <dialog id="loginModal" class="native-app-modal">
-        <div class="modal-wrapper">
-            <button class="modal-close-btn" onclick="document.getElementById('loginModal').close()">&times;</button>
-            <div class="modal-header">
-                <h3><i class="fa-solid fa-right-to-bracket text-gold"></i> تسجيل الدخول</h3>
-                <p>مرحباً بعودتك! أدخل بيانات حسابك للوصول إلى رصيدك.</p>
-            </div>
-            <form id="loginForm" onsubmit="event.preventDefault();">
-                <div class="form-field">
-                    <label for="loginUserField">اسم المستخدم / رقم الهاتف / البريد</label>
-                    <input type="text" id="loginUserField" placeholder="مثال: 20123456" required>
-                </div>
-                <div class="form-field">
-                    <label for="loginPassField">كلمة السر</label>
-                    <input type="password" id="loginPassField" placeholder="••••••••" required>
-                </div>
-                <div class="form-flex-between">
-                    <label><input type="checkbox"> تذكرني</label>
-                    <a href="#" class="forgot-pass">نسيت كلمة السر؟</a>
-                </div>
-                <button type="submit" class="btn btn-gold-block">دخول إلى الحساب</button>
-            </form>
-        </div>
-    </dialog>
-
-    <!-- 5.2 نافذة التسجيل (Register Modal) -->
-    <dialog id="registerModal" class="native-app-modal">
-        <div class="modal-wrapper wide">
-            <button class="modal-close-btn" onclick="document.getElementById('registerModal').close()">&times;</button>
-            <div class="modal-header">
-                <h3><i class="fa-solid fa-user-plus text-gold"></i> إنشاء حساب جديد</h3>
-                <p>اختر طريقة التسجيل المريحة لك للحصول على البونص فوراً.</p>
-            </div>
-            
-            <div class="register-tabs">
-                <button class="reg-tab active" data-reg="oneclick">نقرة واحدة (Fast)</button>
-                <button class="reg-tab" data-reg="phone">برقم الهاتف</button>
-                <button class="reg-tab" data-reg="email">بالبريد الإلكتروني</button>
-            </div>
-
-            <form id="registerForm" onsubmit="event.preventDefault();">
-                <div class="form-grid-2">
-                    <div class="form-field">
-                        <label for="regCountry">البلد</label>
-                        <select id="regCountry">
-                            <option value="TN">تونس (+216)</option>
-                            <option value="DZ">الجزائر (+213)</option>
-                            <option value="MA">المغرب (+212)</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label for="regCurrency">العملة</label>
-                        <select id="regCurrency">
-                            <option value="TND">TND - دينار تونسي</option>
-                            <option value="USD">USD - دولار أمريكي</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-field">
-                    <label for="regPromoCode">رمز الكوبون / Promo Code (اختياري)</label>
-                    <input type="text" id="regPromoCode" placeholder="أدخل الكود للحصول على بونص إضافي">
-                </div>
-                <button type="submit" class="btn btn-gold-block">تأكيد التسجيل وإنشاء الحساب</button>
-            </form>
-        </div>
-    </dialog>
-
-    <!-- 5.3 درج الإيداع الجانبي (Off-Canvas Deposit Drawer) -->
-    <div class="offcanvas-drawer" id="depositDrawer">
-        <div class="drawer-header flex-between">
-            <h4><i class="fa-solid fa-wallet text-gold"></i> الإيداع والشحن السريع</h4>
-            <button class="close-drawer-btn" id="closeDepositDrawer">&times;</button>
-        </div>
-        <div class="drawer-body">
-            <div class="payment-methods-grid">
-                <div class="payment-card-option active">
-                    <i class="fa-solid fa-mobile-retro"></i>
-                    <span>D17 / Sobflous</span>
-                </div>
-                <div class="payment-card-option">
-                    <i class="fa-brands fa-bitcoin"></i>
-                    <span>Cryptocurrency</span>
-                </div>
-                <div class="payment-card-option">
-                    <i class="fa-solid fa-credit-card"></i>
-                    <span>Carte Bancianti</span>
-                </div>
-            </div>
-            <div class="deposit-form-area">
-                <label for="depositAmountInput">المبلغ المراد شحنه (TND):</label>
-                <input type="number" id="depositAmountInput" value="50" min="10">
-                <button class="btn btn-success-deposit w-100 margin-top-15">متابعة عملية الدفع الآمنة</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- 6. COMPREHENSIVE FOOTER (الفوتر الكامل)   -->
-    <!-- ========================================== -->
-    <footer class="main-app-footer">
-        <div class="container-fluid">
-            
-            <!-- وسائل الدفع والشركاء -->
-            <div class="footer-payments-row flex-between">
-                <span class="title">وسائل الدفع المقبولة:</span>
-                <div class="payment-badges">
-                    <span><i class="fa-brands fa-cc-visa"></i> VISA</span>
-                    <span><i class="fa-brands fa-cc-mastercard"></i> MasterCard</span>
-                    <span><i class="fa-brands fa-bitcoin"></i> Crypto</span>
-                    <span><i class="fa-solid fa-building-columns"></i> D17 / Bank</span>
-                </div>
-            </div>
-
-            <hr class="footer-hr">
-
-            <!-- شبكة روابط الفوتر -->
-            <div class="footer-links-grid">
-                <div class="footer-col">
-                    <h4>معلومات عن BETMAX</h4>
-                    <ul>
-                        <li><a href="#">من نحن</a></li>
-                        <li><a href="#">الشروط والأحكام</a></li>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">برنامج التسويق والعملاء (Affiliate)</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>الرهانات والرياضات</h4>
-                    <ul>
-                        <li><a href="#">قواعد الرهان الرياضي</a></li>
-                        <li><a href="#">نتائج المباريات والإحصائيات</a></li>
-                        <li><a href="#">الرهان المباشر LIVE</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>الكازينو والألعاب</h4>
-                    <ul>
-                        <li><a href="#">ألعاب السلوتس</a></li>
-                        <li><a href="#">الكازينو المباشر</a></li>
-                        <li><a href="#">Aviator & Crash Games</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>اللعب المسؤول والترخيص</h4>
-                    <div class="responsible-gaming-box">
-                        <span class="badge-18">18+</span>
-                        <p>الرهان يحتوي على مخاطر مالية. يرجى اللعب بمسؤولية وعقلانية.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom-copyright text-center">
-                <p>&copy; 2026 BETMAX Platform Enterprises. جميع الحقوق محفوظة. مرخص من هيئة تنظيم الألعاب الدولية.</p>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- زر المحادثة المباشرة Floating Live Chat -->
-    <button class="floating-chat-btn" onclick="alert('جاري فتح محادثة الدعم الفني 24/7...')">
-        <i class="fa-solid fa-headset"></i>
-    </button>
-
-    <!-- ربط ملف JavaScript الأساسي -->
+    <!-- Script File Integration -->
     <script src="script.js"></script>
 </body>
 </html>
