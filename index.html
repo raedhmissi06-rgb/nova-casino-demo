@@ -1,581 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>NOVA — Premium Casino Demo</title>
-
-  <meta name="description" content="NOVA Premium Casino Demo — Virtual credits only.">
-  <meta name="theme-color" content="#070707">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETMAX | منصة الرهانات والكازينو المباشر</title>
+    
+    <!-- خط Tajawal وأيقونات FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- =========================
-       DEMO NOTICE
-  ========================== -->
-  <div class="demo-bar">
-    <span>●</span>
-    DEMO MODE — VIRTUAL CREDITS ONLY
-  </div>
+    <!-- 1. الشريط العلوي (Top Bar) -->
+    <header class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-left">
+                <span class="clock-display"><i class="fa-regular fa-clock"></i> <span id="live-clock">12:00:00</span></span>
+                <span class="support-link"><i class="fa-solid fa-headset"></i> الدعم الفني</span>
+            </div>
+            <div class="top-right">
+                <select id="currency-select">
+                    <option value="TND">TND (دينار تونسي)</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                </select>
+                <select id="lang-select">
+                    <option value="ar">العربية</option>
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </header>
 
+    <!-- 2. الهيدر الرئيسي ولوحة المستخدم (Main Header) -->
+    <div class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-main">BET</span><span class="logo-accent">MAX</span>
+            </a>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-  <header class="top-header">
+            <!-- شريط البحث السريع -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="global-search" placeholder="ابحث عن مباراة، فريق، أو لعبة كازينو...">
+            </div>
 
-    <div class="brand">
-      <div class="brand-mark">N</div>
+            <!-- منطقة الحساب والأزرار (تتغير بـ JS حسب حالة تسجيل الدخول) -->
+            <div class="user-control-panel">
+                <!-- حالة المستخدم بعد تسجيل الدخول -->
+                <div class="user-wallet-info" id="userWallet" style="display: none;">
+                    <div class="balance-display">
+                        <span class="label">الرصيد:</span>
+                        <span class="amount" id="userBalance">0.00</span> <small class="currency-tag">TND</small>
+                    </div>
+                    <button class="btn-deposit" id="openDepositBtn"><i class="fa-solid fa-plus"></i> إيداع</button>
+                    <button class="btn-user-profile" id="userProfileBtn"><i class="fa-solid fa-user"></i></button>
+                </div>
 
-      <div class="brand-text">
-        <strong>NOVA</strong>
-        <span>PLAYGROUND</span>
-      </div>
+                <!-- أزرار الزائر قبل تسجيل الدخول -->
+                <div class="auth-buttons-group" id="authButtons">
+                    <button class="btn-secondary" id="openLoginBtn"><i class="fa-solid fa-right-to-bracket"></i> دخول</button>
+                    <button class="btn-primary" id="openRegisterBtn"><i class="fa-solid fa-user-plus"></i> تسجيل</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-    <nav class="desktop-nav">
-      <a href="#home" class="active">Home</a>
-      <a href="#casino">Casino</a>
-      <a href="#popular">Popular</a>
-      <a href="#promotions">Promotions</a>
+    <!-- 3. شريط التنقل الأقسام (Navigation Bar) -->
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li class="active"><a href="#sports" data-tab="sports"><i class="fa-solid fa-futbol"></i> الرياضة</a></li>
+            <li><a href="#live" data-tab="live"><i class="fa-solid fa-satellite-dish text-red"></i> المباشر <span class="badge-live-count" id="liveMatchesCount">0</span></a></li>
+            <li><a href="#casino" data-tab="casino"><i class="fa-solid fa-dice"></i> الكازينو</a></li>
+            <li><a href="#live-casino" data-tab="live-casino"><i class="fa-solid fa-headset"></i> كازينو مباشر</a></li>
+            <li><a href="#crash" data-tab="crash"><i class="fa-solid fa-plane-line"></i> الألعاب السريعة (Aviator)</a></li>
+            <li><a href="#promos" data-tab="promos"><i class="fa-solid fa-gift text-gold"></i> العروض والبونص</a></li>
+        </ul>
     </nav>
 
+    <!-- 4. محتوى المنصة الرئيسي (3 Columns) -->
+    <div class="app-layout">
 
-    <div class="header-actions">
+        <!-- العمود الأيسر: القوائم والرياضات -->
+        <aside class="sidebar-left">
+            <div class="widget-box">
+                <div class="widget-title"><i class="fa-solid fa-fire text-gold"></i> الدوريات الكبرى</div>
+                <ul class="leagues-list" id="topLeaguesList">
+                    <li data-league="tunisia-p1"><img src="https://flagcdn.com/24x18/tn.png" alt="TN"> الرابطة التونسية الأولى</li>
+                    <li data-league="champions-league"><img src="https://flagcdn.com/24x18/eu.png" alt="EU"> دوري أبطال أوروبا</li>
+                    <li data-league="premier-league"><img src="https://flagcdn.com/24x18/gb.png" alt="GB"> الدوري الإنجليزي</li>
+                    <li data-league="la-liga"><img src="https://flagcdn.com/24x18/es.png" alt="ES"> الدوري الإسباني</li>
+                </ul>
+            </div>
 
-      <button class="header-btn notification-btn" onclick="showNotification('No new notifications')">
-        🔔
-      </button>
+            <div class="widget-box">
+                <div class="widget-title"><i class="fa-solid fa-list"></i> جميع الرياضات</div>
+                <ul class="sports-selector-list" id="sportsCategoryList">
+                    <li class="active" data-sport="all"><i class="fa-solid fa-globe"></i> الكل</li>
+                    <li data-sport="football"><i class="fa-solid fa-futbol"></i> كرة القدم</li>
+                    <li data-sport="basketball"><i class="fa-solid fa-basketball"></i> كرة السلة</li>
+                    <li data-sport="tennis"><i class="fa-solid fa-baseball-bat-ball"></i> التنس</li>
+                </ul>
+            </div>
+        </aside>
 
-      <button class="balance-box" onclick="openWallet()">
-        <span class="balance-label">DEMO BALANCE</span>
-        <strong id="balance">10,000</strong>
-        <span class="credit-symbol">CR</span>
-      </button>
+        <!-- العمود الأوسط: المباريات المباشرة والكازينو -->
+        <main class="main-content">
 
-      <button class="profile-btn" onclick="openProfile()">
-        <span>R</span>
-      </button>
+            <!-- بنر الإعلانات والعروض -->
+            <section class="promo-banner-slider">
+                <div class="banner-card">
+                    <div class="banner-text">
+                        <h2>بونص الترحيب 200%</h2>
+                        <p>احصل على بونص يصل إلى 500 TND عند أول إيداع!</p>
+                        <button class="btn-banner" onclick="document.getElementById('registerModal').showModal()">سجل الآن</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم المباريات المباشرة -->
+            <section class="sports-section" id="sportsContainer">
+                <div class="section-header">
+                    <h3><i class="fa-solid fa-circle text-red pulse"></i> المباريات المباشرة</h3>
+                    <div class="filter-buttons" id="liveSportFilters">
+                        <button class="filter-btn active" data-filter="all">الكل</button>
+                        <button class="filter-btn" data-filter="football">كرة قدم</button>
+                        <button class="filter-btn" data-filter="basketball">كرة سلة</button>
+                    </div>
+                </div>
+
+                <!-- جدول المباريات الديناميكي (يُملأ عبر JS) -->
+                <div class="matches-list" id="matchesList">
+                    <!-- نموذج مباراة 1 -->
+                    <div class="match-card" data-match-id="101" data-sport="football">
+                        <div class="match-info">
+                            <span class="league-name">الرابطة التونسية الأولى</span>
+                            <div class="teams-container">
+                                <div class="team-row"><span class="team-name">الترجي الرياضي</span> <b class="score">2</b></div>
+                                <div class="team-row"><span class="team-name">النجم الساحلي</span> <b class="score">1</b></div>
+                            </div>
+                            <span class="match-status live">الشوط الثاني 72'</span>
+                        </div>
+                        <div class="odds-actions">
+                            <!-- الأودز تحتوي على data-attributes هامة لـ JavaScript -->
+                            <button class="btn-odd" data-match-id="101" data-match-name="الترجي vs النجم الساحلي" data-pick="فوز الترجي (1)" data-odd="1.45">
+                                <span class="pick-label">1</span>
+                                <span class="odd-num">1.45</span>
+                            </button>
+                            <button class="btn-odd" data-match-id="101" data-match-name="الترجي vs النجم الساحلي" data-pick="تعادل (X)" data-odd="3.80">
+                                <span class="pick-label">X</span>
+                                <span class="odd-num">3.80</span>
+                            </button>
+                            <button class="btn-odd" data-match-id="101" data-match-name="الترجي vs النجم الساحلي" data-pick="فوز النجم (2)" data-odd="6.50">
+                                <span class="pick-label">2</span>
+                                <span class="odd-num">6.50</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- نموذج مباراة 2 -->
+                    <div class="match-card" data-match-id="102" data-sport="football">
+                        <div class="match-info">
+                            <span class="league-name">الدوري الإسباني</span>
+                            <div class="teams-container">
+                                <div class="team-row"><span class="team-name">ريال مدريد</span> <b class="score">0</b></div>
+                                <div class="team-row"><span class="team-name">برشلونة</span> <b class="score">0</b></div>
+                            </div>
+                            <span class="match-status live">الشوط الأول 30'</span>
+                        </div>
+                        <div class="odds-actions">
+                            <button class="btn-odd" data-match-id="102" data-match-name="ريال مدريد vs برشلونة" data-pick="فوز ريال مدريد (1)" data-odd="2.10">
+                                <span class="pick-label">1</span>
+                                <span class="odd-num">2.10</span>
+                            </button>
+                            <button class="btn-odd" data-match-id="102" data-match-name="ريال مدريد vs برشلونة" data-pick="تعادل (X)" data-odd="3.40">
+                                <span class="pick-label">X</span>
+                                <span class="odd-num">3.40</span>
+                            </button>
+                            <button class="btn-odd" data-match-id="102" data-match-name="ريال مدريد vs برشلونة" data-pick="فوز برشلونة (2)" data-odd="3.10">
+                                <span class="pick-label">2</span>
+                                <span class="odd-num">3.10</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم ألعاب الكازينو والسلوتس -->
+            <section class="casino-section" id="casinoContainer">
+                <div class="section-header">
+                    <h3><i class="fa-solid fa-slot-machine text-gold"></i> أشهر ألعاب السلوتس</h3>
+                </div>
+                <div class="casino-games-grid" id="casinoGamesGrid">
+                    <!-- لعبة 1 -->
+                    <div class="game-card" data-game-id="slot-1" data-game-name="Gates of Olympus">
+                        <div class="game-thumb" style="background-image: url('https://picsum.photos/250/160?random=1');">
+                            <div class="thumb-overlay">
+                                <button class="btn-play-game"><i class="fa-solid fa-play"></i> العب الان</button>
+                                <button class="btn-demo-game">تجربة</button>
+                            </div>
+                        </div>
+                        <div class="game-details">
+                            <h4>Gates of Olympus</h4>
+                            <span class="provider-tag">Pragmatic Play</span>
+                        </div>
+                    </div>
+
+                    <!-- لعبة 2 -->
+                    <div class="game-card" data-game-id="slot-2" data-game-name="Aviator">
+                        <div class="game-thumb" style="background-image: url('https://picsum.photos/250/160?random=2');">
+                            <div class="thumb-overlay">
+                                <button class="btn-play-game"><i class="fa-solid fa-play"></i> العب الان</button>
+                                <button class="btn-demo-game">تجربة</button>
+                            </div>
+                        </div>
+                        <div class="game-details">
+                            <h4>Aviator (Crash Game)</h4>
+                            <span class="provider-tag">Spribe</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- العمود الأيمن: قسيمة الرهان (Betslip) -->
+        <aside class="sidebar-right">
+            <div class="betslip-box" id="betslipWidget">
+                <div class="betslip-header">
+                    <h4><i class="fa-solid fa-receipt"></i> قسيمة الرهان</h4>
+                    <span class="betslip-badge" id="betsCount">0</span>
+                </div>
+
+                <!-- الأفرع المضافة تفاعلياً بـ JavaScript -->
+                <div class="betslip-content" id="betslipItems">
+                    <!-- حالة عدم وجود رهانات -->
+                    <div class="empty-betslip-msg" id="emptyBetslipMsg">
+                        <i class="fa-solid fa-ticket-simple"></i>
+                        <p>اضغط على أي إحتمال (Odd) لإضافته إلى قسيمة الرهان</p>
+                    </div>
+                </div>
+
+                <!-- حاسبة الرهان والمبالغ -->
+                <div class="betslip-footer">
+                    <div class="calc-row">
+                        <span>مجموع الاحتمالات (Total Odds):</span>
+                        <strong id="totalOddsVal">0.00</strong>
+                    </div>
+                    <div class="stake-field">
+                        <label for="stakeInput">مبلغ الرهان (TND):</label>
+                        <input type="number" id="stakeInput" value="10" min="1">
+                    </div>
+                    <div class="calc-row highlight">
+                        <span>الربح المحتمل:</span>
+                        <strong id="potentialWinVal" class="text-gold">0.00 TND</strong>
+                    </div>
+                    <button class="btn-place-bet" id="placeBetBtn" disabled>تأكيد الرهان</button>
+                </div>
+            </div>
+        </aside>
 
     </div>
 
-  </header>
-
-
-  <!-- =========================
-       MOBILE NAVIGATION
-  ========================== -->
-  <div class="mobile-nav">
-
-    <a href="#home" class="mobile-nav-item active">
-      <span>⌂</span>
-      <small>Home</small>
-    </a>
-
-    <a href="#casino" class="mobile-nav-item">
-      <span>🎰</span>
-      <small>Casino</small>
-    </a>
-
-    <a href="#popular" class="mobile-nav-item">
-      <span>🔥</span>
-      <small>Popular</small>
-    </a>
-
-    <button class="mobile-nav-item" onclick="openWallet()">
-      <span>💰</span>
-      <small>Wallet</small>
-    </button>
-
-    <button class="mobile-nav-item" onclick="openProfile()">
-      <span>👤</span>
-      <small>Profile</small>
-    </button>
-
-  </div>
-
-
-  <!-- =========================
-       MAIN
-  ========================== -->
-  <main id="home">
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-    <section class="hero-section">
-
-      <div class="hero-background"></div>
-
-      <div class="hero-content">
-
-        <div class="hero-badge">
-          ✦ NOVA PREMIUM EXPERIENCE
+    <!-- 5. النوافذ المنبثقة الأصيلة (Native HTML5 Modals) -->
+    <!-- نافذة تسجيل الدخول -->
+    <dialog id="loginModal" class="app-modal">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="document.getElementById('loginModal').close()">&times;</button>
+            <h3><i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUser">اسم المستخدم / رقم الهاتف</label>
+                    <input type="text" id="loginUser" required placeholder="أدخل اسم المستخدم">
+                </div>
+                <div class="form-group">
+                    <label for="loginPass">كلمة السر</label>
+                    <input type="password" id="loginPass" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-submit-form">دخول</button>
+            </form>
         </div>
+    </dialog>
 
-        <h1>
-          PLAY
-          <span>BEYOND</span>
-          LIMITS
-        </h1>
-
-        <p>
-          Explore an immersive casino playground with
-          virtual credits, premium games and cinematic
-          animations.
-        </p>
-
-        <div class="hero-buttons">
-
-          <button class="primary-btn" onclick="scrollToSection('casino')">
-            <span>PLAY NOW</span>
-            <b>→</b>
-          </button>
-
-          <button class="secondary-btn" onclick="scrollToSection('popular')">
-            EXPLORE GAMES
-          </button>
-
+    <!-- نافذة إنشاء حساب -->
+    <dialog id="registerModal" class="app-modal">
+        <div class="modal-content">
+            <button class="close-modal-btn" onclick="document.getElementById('registerModal').close()">&times;</button>
+            <h3><i class="fa-solid fa-user-plus"></i> إنشاء حساب جديد</h3>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regUsername">اسم المستخدم</label>
+                    <input type="text" id="regUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPhone">رقم الهاتف (تونس)</label>
+                    <input type="tel" id="regPhone" placeholder="20 123 456" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">كلمة السر</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <button type="submit" class="btn-submit-form">إنشاء الحساب الآن</button>
+            </form>
         </div>
+    </dialog>
 
-        <div class="hero-features">
-
-          <div>
-            <strong>10K</strong>
-            <span>FREE CREDITS</span>
-          </div>
-
-          <div>
-            <strong>15+</strong>
-            <span>DEMO GAMES</span>
-          </div>
-
-          <div>
-            <strong>24/7</strong>
-            <span>ACCESS</span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Hero visual -->
-      <div class="hero-visual">
-
-        <div class="glow-circle"></div>
-
-        <div class="floating-card card-one">
-          <span>♠</span>
-          <strong>BLACK</strong>
-        </div>
-
-        <div class="floating-card card-two">
-          <span>♦</span>
-          <strong>RED</strong>
-        </div>
-
-        <div class="hero-chip">
-          <span>N</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         QUICK CATEGORIES
-    ========================== -->
-    <section class="category-section">
-
-      <button class="category-card active" onclick="filterGames('all')">
-        <span>✦</span>
-        <strong>All Games</strong>
-      </button>
-
-      <button class="category-card" onclick="filterGames('slots')">
-        <span>🎰</span>
-        <strong>Slots</strong>
-      </button>
-
-      <button class="category-card" onclick="filterGames('crash')">
-        <span>🚀</span>
-        <strong>Crash</strong>
-      </button>
-
-      <button class="category-card" onclick="filterGames('roulette')">
-        <span>🎡</span>
-        <strong>Roulette</strong>
-      </button>
-
-      <button class="category-card" onclick="filterGames('table')">
-        <span>🃏</span>
-        <strong>Table Games</strong>
-      </button>
-
-    </section>
-
-
-    <!-- =========================
-         POPULAR GAMES
-    ========================== -->
-    <section class="content-section" id="popular">
-
-      <div class="section-heading">
-
-        <div>
-          <span class="section-kicker">TRENDING NOW</span>
-          <h2>Popular Games</h2>
-        </div>
-
-        <button class="view-all-btn" onclick="filterGames('all')">
-          View all →
-        </button>
-
-      </div>
-
-
-      <div class="games-grid premium-grid">
-
-
-        <!-- GAME 1 -->
-        <article class="premium-game-card" data-category="slots">
-
-          <div class="game-cover slots-cover">
-
-            <div class="game-badge hot">
-              🔥 HOT
-            </div>
-
-            <div class="cover-content">
-              <span class="cover-icon">🎰</span>
-              <h3>NOVA SLOTS</h3>
-              <small>MEGA REELS</small>
-            </div>
-
-            <div class="game-overlay">
-              <button onclick="openGame('slots')">
-                PLAY
-              </button>
-            </div>
-
-          </div>
-
-          <div class="game-card-info">
-            <div>
-              <span>SLOTS</span>
-              <h3>Nova Slots</h3>
-            </div>
-
-            <strong>10 CR</strong>
-          </div>
-
-        </article>
-
-
-        <!-- GAME 2 -->
-        <article class="premium-game-card" data-category="crash">
-
-          <div class="game-cover crash-cover">
-
-            <div class="game-badge new">
-              NEW
-            </div>
-
-            <div class="cover-content">
-              <span class="cover-icon">🚀</span>
-              <h3>NOVA CRASH</h3>
-              <small>REACH THE SKY</small>
-            </div>
-
-            <div class="game-overlay">
-              <button onclick="openGame('crash')">
-                PLAY
-              </button>
-            </div>
-
-          </div>
-
-          <div class="game-card-info">
-            <div>
-              <span>CRASH</span>
-              <h3>Nova Crash</h3>
-            </div>
-
-            <strong>10 CR</strong>
-          </div>
-
-        </article>
-
-
-        <!-- GAME 3 -->
-        <article class="premium-game-card" data-category="roulette">
-
-          <div class="game-cover roulette-cover">
-
-            <div class="game-badge">
-              LIVE DEMO
-            </div>
-
-            <div class="cover-content">
-              <span class="cover-icon">🎡</span>
-              <h3>NOVA ROULETTE</h3>
-              <small>RED OR BLACK</small>
-            </div>
-
-            <div class="game-overlay">
-              <button onclick="openGame('roulette')">
-                PLAY
-              </button>
-            </div>
-
-          </div>
-
-          <div class="game-card-info">
-            <div>
-              <span>ROULETTE</span>
-              <h3>Nova Roulette</h3>
-            </div>
-
-            <strong>10 CR</strong>
-          </div>
-
-        </article>
-
-
-        <!-- GAME 4 -->
-        <article class="premium-game-card" data-category="table">
-
-          <div class="game-cover blackjack-cover">
-
-            <div class="game-badge">
-              CLASSIC
-            </div>
-
-            <div class="cover-content">
-              <span class="cover-icon">🃏</span>
-              <h3>BLACKJACK</h3>
-              <small>21 DEMO</small>
-            </div>
-
-            <div class="game-overlay">
-              <button onclick="openGame('blackjack')">
-                PLAY
-              </button>
-            </div>
-
-          </div>
-
-          <div class="game-card-info">
-            <div>
-              <span>TABLE</span>
-              <h3>Nova Blackjack</h3>
-            </div>
-
-            <strong>10 CR</strong>
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROMOTIONAL BANNER
-    ========================== -->
-    <section class="promo-section" id="promotions">
-
-      <div class="promo-content">
-
-        <span class="promo-label">
-          ✦ NOVA REWARDS
-        </span>
-
-        <h2>
-          START WITH
-          <span>10,000 CR</span>
-        </h2>
-
-        <p>
-          Your demo wallet is ready. Explore the games
-          and test the complete NOVA experience.
-        </p>
-
-        <button class="primary-btn" onclick="openWallet()">
-          OPEN DEMO WALLET →
-        </button>
-
-      </div>
-
-      <div class="promo-decoration">
-        <div class="promo-ring"></div>
-        <div class="promo-chip">N</div>
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CASINO SECTION
-    ========================== -->
-    <section class="content-section" id="casino">
-
-      <div class="section-heading">
-
-        <div>
-          <span class="section-kicker">DISCOVER</span>
-          <h2>Casino Lobby</h2>
-        </div>
-
-        <div class="demo-status">
-          <span></span>
-          DEMO ONLINE
-        </div>
-
-      </div>
-
-
-      <div class="games-grid casino-grid">
-
-        <article class="mini-game" data-category="slots" onclick="openGame('slots')">
-          <div class="mini-icon">🎰</div>
-          <div>
-            <small>SLOTS</small>
-            <h3>Nova Slots</h3>
-          </div>
-          <span>→</span>
-        </article>
-
-
-        <article class="mini-game" data-category="crash" onclick="openGame('crash')">
-          <div class="mini-icon">🚀</div>
-          <div>
-            <small>CRASH</small>
-            <h3>Nova Crash</h3>
-          </div>
-          <span>→</span>
-        </article>
-
-
-        <article class="mini-game" data-category="roulette" onclick="openGame('roulette')">
-          <div class="mini-icon">🎡</div>
-          <div>
-            <small>ROULETTE</small>
-            <h3>Nova Roulette</h3>
-          </div>
-          <span>→</span>
-        </article>
-
-
-        <article class="mini-game" data-category="table" onclick="openGame('blackjack')">
-          <div class="mini-icon">🃏</div>
-          <div>
-            <small>TABLE</small>
-            <h3>Blackjack</h3>
-          </div>
-          <span>→</span>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         DEMO STATISTICS
-    ========================== -->
-    <section class="stats-section">
-
-      <div class="stat-box">
-        <strong id="gamesPlayed">0</strong>
-        <span>Games Played</span>
-      </div>
-
-      <div class="stat-box">
-        <strong id="totalWon">0</strong>
-        <span>Credits Won</span>
-      </div>
-
-      <div class="stat-box">
-        <strong id="bestWin">0</strong>
-        <span>Best Win</span>
-      </div>
-
-      <div class="stat-box">
-        <strong>100%</strong>
-        <span>Demo Mode</span>
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         RESPONSIBLE DEMO NOTICE
-    ========================== -->
-    <section class="responsible-section">
-
-      <div class="responsible-icon">ⓘ</div>
-
-      <div>
-        <strong>THIS IS A DEMO EXPERIENCE</strong>
-
-        <p>
-          NOVA uses virtual credits only. No deposits,
-          withdrawals, real-money betting or financial
-          transactions are available.
-        </p>
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer class="footer">
-
-    <div class="footer-brand">
-      <div class="brand-mark">N</div>
-
-      <div>
-        <strong>NOVA</strong>
-        <span>PREMIUM DEMO</span>
-      </div>
-    </div>
-
-
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#casino">Casino</a>
-      <a href="#popular">Games</a>
-      <a href="#promotions">Promotions</a>
-    </div>
-
-
-    <div class="footer-bottom">
-      <span>© 2026 NOVA DEMO</span>
-      <span>VIRTUAL CREDITS ONLY</span>
-    </div>
-
-  </footer>
-
-
-  <!-- =========================
-       SCRIPT
-  ========================== -->
-  <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-                                           </html>
+</html>
