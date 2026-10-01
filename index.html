@@ -3,118 +3,537 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nova Casino Demo</title>
+
+  <title>NOVA — Premium Casino Demo</title>
+
+  <meta name="description" content="NOVA Premium Casino Demo — Virtual credits only.">
+  <meta name="theme-color" content="#070707">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header class="navbar">
-    <div class="logo">
-      <span>◆</span> NOVA
+  <!-- =========================
+       DEMO NOTICE
+  ========================== -->
+  <div class="demo-bar">
+    <span>●</span>
+    DEMO MODE — VIRTUAL CREDITS ONLY
+  </div>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="top-header">
+
+    <div class="brand">
+      <div class="brand-mark">N</div>
+
+      <div class="brand-text">
+        <strong>NOVA</strong>
+        <span>PLAYGROUND</span>
+      </div>
     </div>
 
-    <div class="balance">
-      <span>Credits</span>
-      <strong id="balance">10,000</strong>
+
+    <nav class="desktop-nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#casino">Casino</a>
+      <a href="#popular">Popular</a>
+      <a href="#promotions">Promotions</a>
+    </nav>
+
+
+    <div class="header-actions">
+
+      <button class="header-btn notification-btn" onclick="showNotification('No new notifications')">
+        🔔
+      </button>
+
+      <button class="balance-box" onclick="openWallet()">
+        <span class="balance-label">DEMO BALANCE</span>
+        <strong id="balance">10,000</strong>
+        <span class="credit-symbol">CR</span>
+      </button>
+
+      <button class="profile-btn" onclick="openProfile()">
+        <span>R</span>
+      </button>
+
     </div>
+
   </header>
 
-  <main>
 
-    <section class="hero">
+  <!-- =========================
+       MOBILE NAVIGATION
+  ========================== -->
+  <div class="mobile-nav">
+
+    <a href="#home" class="mobile-nav-item active">
+      <span>⌂</span>
+      <small>Home</small>
+    </a>
+
+    <a href="#casino" class="mobile-nav-item">
+      <span>🎰</span>
+      <small>Casino</small>
+    </a>
+
+    <a href="#popular" class="mobile-nav-item">
+      <span>🔥</span>
+      <small>Popular</small>
+    </a>
+
+    <button class="mobile-nav-item" onclick="openWallet()">
+      <span>💰</span>
+      <small>Wallet</small>
+    </button>
+
+    <button class="mobile-nav-item" onclick="openProfile()">
+      <span>👤</span>
+      <small>Profile</small>
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main id="home">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="hero-section">
+
+      <div class="hero-background"></div>
+
       <div class="hero-content">
-        <p class="eyebrow">WELCOME TO NOVA</p>
 
-        <h1>CASINO<br><span>DEMO</span></h1>
+        <div class="hero-badge">
+          ✦ NOVA PREMIUM EXPERIENCE
+        </div>
 
-        <p class="subtitle">
-          Experience interactive casino games with virtual credits.
+        <h1>
+          PLAY
+          <span>BEYOND</span>
+          LIMITS
+        </h1>
+
+        <p>
+          Explore an immersive casino playground with
+          virtual credits, premium games and cinematic
+          animations.
         </p>
 
-        <button class="play-btn" onclick="scrollToGames()">
-          PLAY NOW
+        <div class="hero-buttons">
+
+          <button class="primary-btn" onclick="scrollToSection('casino')">
+            <span>PLAY NOW</span>
+            <b>→</b>
+          </button>
+
+          <button class="secondary-btn" onclick="scrollToSection('popular')">
+            EXPLORE GAMES
+          </button>
+
+        </div>
+
+        <div class="hero-features">
+
+          <div>
+            <strong>10K</strong>
+            <span>FREE CREDITS</span>
+          </div>
+
+          <div>
+            <strong>15+</strong>
+            <span>DEMO GAMES</span>
+          </div>
+
+          <div>
+            <strong>24/7</strong>
+            <span>ACCESS</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Hero visual -->
+      <div class="hero-visual">
+
+        <div class="glow-circle"></div>
+
+        <div class="floating-card card-one">
+          <span>♠</span>
+          <strong>BLACK</strong>
+        </div>
+
+        <div class="floating-card card-two">
+          <span>♦</span>
+          <strong>RED</strong>
+        </div>
+
+        <div class="hero-chip">
+          <span>N</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUICK CATEGORIES
+    ========================== -->
+    <section class="category-section">
+
+      <button class="category-card active" onclick="filterGames('all')">
+        <span>✦</span>
+        <strong>All Games</strong>
+      </button>
+
+      <button class="category-card" onclick="filterGames('slots')">
+        <span>🎰</span>
+        <strong>Slots</strong>
+      </button>
+
+      <button class="category-card" onclick="filterGames('crash')">
+        <span>🚀</span>
+        <strong>Crash</strong>
+      </button>
+
+      <button class="category-card" onclick="filterGames('roulette')">
+        <span>🎡</span>
+        <strong>Roulette</strong>
+      </button>
+
+      <button class="category-card" onclick="filterGames('table')">
+        <span>🃏</span>
+        <strong>Table Games</strong>
+      </button>
+
+    </section>
+
+
+    <!-- =========================
+         POPULAR GAMES
+    ========================== -->
+    <section class="content-section" id="popular">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-kicker">TRENDING NOW</span>
+          <h2>Popular Games</h2>
+        </div>
+
+        <button class="view-all-btn" onclick="filterGames('all')">
+          View all →
         </button>
 
-        <p class="demo-warning">
-          DEMO MODE • NO REAL MONEY
+      </div>
+
+
+      <div class="games-grid premium-grid">
+
+
+        <!-- GAME 1 -->
+        <article class="premium-game-card" data-category="slots">
+
+          <div class="game-cover slots-cover">
+
+            <div class="game-badge hot">
+              🔥 HOT
+            </div>
+
+            <div class="cover-content">
+              <span class="cover-icon">🎰</span>
+              <h3>NOVA SLOTS</h3>
+              <small>MEGA REELS</small>
+            </div>
+
+            <div class="game-overlay">
+              <button onclick="openGame('slots')">
+                PLAY
+              </button>
+            </div>
+
+          </div>
+
+          <div class="game-card-info">
+            <div>
+              <span>SLOTS</span>
+              <h3>Nova Slots</h3>
+            </div>
+
+            <strong>10 CR</strong>
+          </div>
+
+        </article>
+
+
+        <!-- GAME 2 -->
+        <article class="premium-game-card" data-category="crash">
+
+          <div class="game-cover crash-cover">
+
+            <div class="game-badge new">
+              NEW
+            </div>
+
+            <div class="cover-content">
+              <span class="cover-icon">🚀</span>
+              <h3>NOVA CRASH</h3>
+              <small>REACH THE SKY</small>
+            </div>
+
+            <div class="game-overlay">
+              <button onclick="openGame('crash')">
+                PLAY
+              </button>
+            </div>
+
+          </div>
+
+          <div class="game-card-info">
+            <div>
+              <span>CRASH</span>
+              <h3>Nova Crash</h3>
+            </div>
+
+            <strong>10 CR</strong>
+          </div>
+
+        </article>
+
+
+        <!-- GAME 3 -->
+        <article class="premium-game-card" data-category="roulette">
+
+          <div class="game-cover roulette-cover">
+
+            <div class="game-badge">
+              LIVE DEMO
+            </div>
+
+            <div class="cover-content">
+              <span class="cover-icon">🎡</span>
+              <h3>NOVA ROULETTE</h3>
+              <small>RED OR BLACK</small>
+            </div>
+
+            <div class="game-overlay">
+              <button onclick="openGame('roulette')">
+                PLAY
+              </button>
+            </div>
+
+          </div>
+
+          <div class="game-card-info">
+            <div>
+              <span>ROULETTE</span>
+              <h3>Nova Roulette</h3>
+            </div>
+
+            <strong>10 CR</strong>
+          </div>
+
+        </article>
+
+
+        <!-- GAME 4 -->
+        <article class="premium-game-card" data-category="table">
+
+          <div class="game-cover blackjack-cover">
+
+            <div class="game-badge">
+              CLASSIC
+            </div>
+
+            <div class="cover-content">
+              <span class="cover-icon">🃏</span>
+              <h3>BLACKJACK</h3>
+              <small>21 DEMO</small>
+            </div>
+
+            <div class="game-overlay">
+              <button onclick="openGame('blackjack')">
+                PLAY
+              </button>
+            </div>
+
+          </div>
+
+          <div class="game-card-info">
+            <div>
+              <span>TABLE</span>
+              <h3>Nova Blackjack</h3>
+            </div>
+
+            <strong>10 CR</strong>
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROMOTIONAL BANNER
+    ========================== -->
+    <section class="promo-section" id="promotions">
+
+      <div class="promo-content">
+
+        <span class="promo-label">
+          ✦ NOVA REWARDS
+        </span>
+
+        <h2>
+          START WITH
+          <span>10,000 CR</span>
+        </h2>
+
+        <p>
+          Your demo wallet is ready. Explore the games
+          and test the complete NOVA experience.
         </p>
+
+        <button class="primary-btn" onclick="openWallet()">
+          OPEN DEMO WALLET →
+        </button>
+
       </div>
+
+      <div class="promo-decoration">
+        <div class="promo-ring"></div>
+        <div class="promo-chip">N</div>
+      </div>
+
     </section>
 
 
-    <section class="games-section" id="games">
+    <!-- =========================
+         CASINO SECTION
+    ========================== -->
+    <section class="content-section" id="casino">
 
-      <div class="section-title">
-        <p>CHOOSE YOUR GAME</p>
-        <h2>Featured Games</h2>
+      <div class="section-heading">
+
+        <div>
+          <span class="section-kicker">DISCOVER</span>
+          <h2>Casino Lobby</h2>
+        </div>
+
+        <div class="demo-status">
+          <span></span>
+          DEMO ONLINE
+        </div>
+
       </div>
 
-      <div class="games-grid">
 
-        <article class="game-card">
-          <div class="game-icon">🎰</div>
+      <div class="games-grid casino-grid">
 
-          <div class="game-info">
-            <span class="game-type">SLOTS</span>
+        <article class="mini-game" data-category="slots" onclick="openGame('slots')">
+          <div class="mini-icon">🎰</div>
+          <div>
+            <small>SLOTS</small>
             <h3>Nova Slots</h3>
-            <p>Spin the reels and chase virtual rewards.</p>
-
-            <button onclick="openGame('slots')">
-              PLAY
-            </button>
           </div>
+          <span>→</span>
         </article>
 
 
-        <article class="game-card">
-          <div class="game-icon">🚀</div>
-
-          <div class="game-info">
-            <span class="game-type">CRASH</span>
+        <article class="mini-game" data-category="crash" onclick="openGame('crash')">
+          <div class="mini-icon">🚀</div>
+          <div>
+            <small>CRASH</small>
             <h3>Nova Crash</h3>
-            <p>Watch the multiplier rise and cash out.</p>
-
-            <button onclick="openGame('crash')">
-              PLAY
-            </button>
           </div>
+          <span>→</span>
         </article>
 
 
-        <article class="game-card">
-          <div class="game-icon">🎡</div>
-
-          <div class="game-info">
-            <span class="game-type">ROULETTE</span>
+        <article class="mini-game" data-category="roulette" onclick="openGame('roulette')">
+          <div class="mini-icon">🎡</div>
+          <div>
+            <small>ROULETTE</small>
             <h3>Nova Roulette</h3>
-            <p>Try your luck on the virtual roulette wheel.</p>
-
-            <button onclick="openGame('roulette')">
-              PLAY
-            </button>
           </div>
+          <span>→</span>
+        </article>
+
+
+        <article class="mini-game" data-category="table" onclick="openGame('blackjack')">
+          <div class="mini-icon">🃏</div>
+          <div>
+            <small>TABLE</small>
+            <h3>Blackjack</h3>
+          </div>
+          <span>→</span>
         </article>
 
       </div>
+
     </section>
 
 
-    <section class="stats">
+    <!-- =========================
+         DEMO STATISTICS
+    ========================== -->
+    <section class="stats-section">
 
-      <div>
-        <strong>10,000</strong>
-        <span>Starting Credits</span>
+      <div class="stat-box">
+        <strong id="gamesPlayed">0</strong>
+        <span>Games Played</span>
       </div>
 
-      <div>
-        <strong>3</strong>
-        <span>Demo Games</span>
+      <div class="stat-box">
+        <strong id="totalWon">0</strong>
+        <span>Credits Won</span>
       </div>
 
+      <div class="stat-box">
+        <strong id="bestWin">0</strong>
+        <span>Best Win</span>
+      </div>
+
+      <div class="stat-box">
+        <strong>100%</strong>
+        <span>Demo Mode</span>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESPONSIBLE DEMO NOTICE
+    ========================== -->
+    <section class="responsible-section">
+
+      <div class="responsible-icon">ⓘ</div>
+
       <div>
-        <strong>24/7</strong>
-        <span>Demo Access</span>
+        <strong>THIS IS A DEMO EXPERIENCE</strong>
+
+        <p>
+          NOVA uses virtual credits only. No deposits,
+          withdrawals, real-money betting or financial
+          transactions are available.
+        </p>
       </div>
 
     </section>
@@ -122,19 +541,41 @@
   </main>
 
 
-  <footer>
-    <div class="logo">◆ NOVA</div>
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="footer">
 
-    <p>
-      Nova Casino Demo is a virtual entertainment project.
-      No real-money gambling is available.
-    </p>
+    <div class="footer-brand">
+      <div class="brand-mark">N</div>
 
-    <small>© 2026 Nova Demo</small>
+      <div>
+        <strong>NOVA</strong>
+        <span>PREMIUM DEMO</span>
+      </div>
+    </div>
+
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#casino">Casino</a>
+      <a href="#popular">Games</a>
+      <a href="#promotions">Promotions</a>
+    </div>
+
+
+    <div class="footer-bottom">
+      <span>© 2026 NOVA DEMO</span>
+      <span>VIRTUAL CREDITS ONLY</span>
+    </div>
+
   </footer>
 
 
+  <!-- =========================
+       SCRIPT
+  ========================== -->
   <script src="script.js"></script>
 
 </body>
-  </html>
+                                           </html>
