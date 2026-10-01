@@ -1,4 +1,140 @@
-nova-casino-demo/
-├── index.html
-├── style.css
-└── script.js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Casino Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span>◆</span> NOVA
+    </div>
+
+    <div class="balance">
+      <span>Credits</span>
+      <strong id="balance">10,000</strong>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">WELCOME TO NOVA</p>
+
+        <h1>CASINO<br><span>DEMO</span></h1>
+
+        <p class="subtitle">
+          Experience interactive casino games with virtual credits.
+        </p>
+
+        <button class="play-btn" onclick="scrollToGames()">
+          PLAY NOW
+        </button>
+
+        <p class="demo-warning">
+          DEMO MODE • NO REAL MONEY
+        </p>
+      </div>
+    </section>
+
+
+    <section class="games-section" id="games">
+
+      <div class="section-title">
+        <p>CHOOSE YOUR GAME</p>
+        <h2>Featured Games</h2>
+      </div>
+
+      <div class="games-grid">
+
+        <article class="game-card">
+          <div class="game-icon">🎰</div>
+
+          <div class="game-info">
+            <span class="game-type">SLOTS</span>
+            <h3>Nova Slots</h3>
+            <p>Spin the reels and chase virtual rewards.</p>
+
+            <button onclick="openGame('slots')">
+              PLAY
+            </button>
+          </div>
+        </article>
+
+
+        <article class="game-card">
+          <div class="game-icon">🚀</div>
+
+          <div class="game-info">
+            <span class="game-type">CRASH</span>
+            <h3>Nova Crash</h3>
+            <p>Watch the multiplier rise and cash out.</p>
+
+            <button onclick="openGame('crash')">
+              PLAY
+            </button>
+          </div>
+        </article>
+
+
+        <article class="game-card">
+          <div class="game-icon">🎡</div>
+
+          <div class="game-info">
+            <span class="game-type">ROULETTE</span>
+            <h3>Nova Roulette</h3>
+            <p>Try your luck on the virtual roulette wheel.</p>
+
+            <button onclick="openGame('roulette')">
+              PLAY
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section class="stats">
+
+      <div>
+        <strong>10,000</strong>
+        <span>Starting Credits</span>
+      </div>
+
+      <div>
+        <strong>3</strong>
+        <span>Demo Games</span>
+      </div>
+
+      <div>
+        <strong>24/7</strong>
+        <span>Demo Access</span>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="logo">◆ NOVA</div>
+
+    <p>
+      Nova Casino Demo is a virtual entertainment project.
+      No real-money gambling is available.
+    </p>
+
+    <small>© 2026 Nova Demo</small>
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+  </html>
