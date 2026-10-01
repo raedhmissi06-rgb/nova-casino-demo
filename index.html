@@ -3,265 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BETMAX PRO - المنصة المتكاملة للرهانات والـ Slots والكازينو</title>
+    <title>BETMAX PRO - المنصة المتكاملة للرهانات والـ Slots</title>
     
     <!-- الخطوط والأيقونات -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-        /* ==========================================================================
-           BETMAX PRO - FULL DESIGN SYSTEM
-           ========================================================================== */
-        :root {
-            --bg-body: #0b0f19;
-            --bg-surface: #151d2a;
-            --bg-card: #1e293b;
-            --bg-hover: #2d3d54;
-            --accent-gold: #fbbf24;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --accent-purple: #8b5cf6;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #27354a;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --shadow: 0 10px 30px rgba(0,0,0,0.6);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; user-select: none; }
-        body { background-color: var(--bg-body); color: var(--text-main); direction: rtl; min-height: 100vh; padding-bottom: 80px; }
-
-        a { color: inherit; text-decoration: none; }
-        button, input, select { font-family: inherit; border: none; outline: none; }
-
-        /* Top Bar */
-        .top-bar {
-            background: #060911;
-            padding: 8px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-muted);
-        }
-        .top-bar select {
-            background: var(--bg-surface);
-            color: var(--text-main);
-            padding: 4px 10px;
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border-color);
-        }
-
-        /* Navigation Header */
-        .main-nav {
-            background: var(--bg-surface);
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .logo { font-size: 24px; font-weight: 900; color: var(--accent-gold); display: flex; align-items: center; gap: 8px; }
-
-        .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
-        .nav-tab-btn {
-            background: transparent;
-            color: var(--text-muted);
-            padding: 8px 14px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .nav-tab-btn:hover, .nav-tab-btn.active { background: var(--bg-card); color: var(--accent-gold); }
-
-        .user-panel { display: flex; align-items: center; gap: 12px; }
-        .balance-badge {
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid var(--accent-green);
-            color: var(--accent-green);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 14px;
-        }
-        .btn-deposit {
-            background: var(--accent-gold);
-            color: #000;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-
-        /* App Layout */
-        .app-layout {
-            display: grid;
-            grid-template-columns: 240px 1fr 320px;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        /* Sidebar */
-        .sidebar { background: var(--bg-surface); border-radius: var(--radius-md); padding: 16px; border: 1px solid var(--border-color); }
-        .sidebar-title { font-size: 14px; font-weight: 800; color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .menu-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-        .menu-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 14px;
-        }
-        .menu-item:hover, .menu-item.active { background: var(--bg-card); color: var(--accent-gold); }
-        .flag-img { width: 20px; height: 14px; border-radius: 2px; object-fit: cover; }
-
-        /* Match Card & Odds */
-        .section-header { font-size: 18px; font-weight: 800; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
-        .match-card {
-            background: var(--bg-surface);
-            border-radius: var(--radius-md);
-            padding: 18px;
-            margin-bottom: 14px;
-            border: 1px solid var(--border-color);
-        }
-        .match-teams { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; }
-        .team { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 15px; }
-        .team img { width: 32px; height: 32px; object-fit: contain; }
-
-        .odds-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-        .odd-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            font-weight: 800;
-        }
-        .odd-btn.selected { background: var(--accent-gold); color: #000; }
-
-        /* ==========================================================================
-           1. SLOT MACHINE GAME STYLING (JS CODE)
-           ========================================================================== */
-        .slot-container {
-            background: linear-gradient(135deg, #1f1435 0%, #0d121d 100%);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            border: 2px solid var(--accent-gold);
-            text-align: center;
-            box-shadow: 0 0 30px rgba(251, 191, 36, 0.2);
-            margin-bottom: 25px;
-        }
-        .slot-reels-box {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .reel {
-            width: 90px;
-            height: 110px;
-            background: #050811;
-            border-radius: var(--radius-md);
-            border: 2px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-            transition: transform 0.1s;
-        }
-        .reel.spinning {
-            animation: reelSpin 0.1s infinite linear;
-        }
-        @keyframes reelSpin {
-            0% { transform: translateY(-5px); }
-            50% { transform: translateY(5px); }
-            100% { transform: translateY(-5px); }
-        }
-
-        /* ==========================================================================
-           2. IFRAME GAME PLAYER STYLING (PRAGMATIC / AMATIC)
-           ========================================================================== */
-        .iframe-container {
-            background: var(--bg-surface);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            margin-bottom: 25px;
-        }
-        .iframe-header {
-            background: #090e17;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .iframe-wrapper {
-            width: 100%;
-            height: 550px;
-            position: relative;
-            background: #000;
-        }
-        .iframe-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Betslip */
-        .betslip-widget {
-            background: var(--bg-surface);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
-            padding: 16px;
-            position: sticky;
-            top: 80px;
-        }
-
-        /* Toast Container */
-        .toast-container { position: fixed; bottom: 20px; left: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
-        .toast {
-            background: var(--bg-card);
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: var(--radius-sm);
-            border-right: 4px solid var(--accent-gold);
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        @media (max-width: 1024px) {
-            .app-layout { grid-template-columns: 1fr; }
-            .sidebar-left, .betslip-widget { display: none; }
-        }
-    </style>
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Top Utility Bar -->
+    <!-- Utility Bar -->
     <div class="top-bar">
         <div><i class="fa-regular fa-clock"></i> <span id="clockText">11:30:00 (UTC+1)</span></div>
         <div style="display: flex; gap: 12px;">
@@ -270,7 +23,7 @@
         </div>
     </div>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation Header -->
     <header class="main-nav">
         <div class="logo">
             <i class="fa-solid fa-bolt text-gold"></i> BETMAX <span style="color:#fff; font-size:12px; background:var(--accent-purple); padding:2px 8px; border-radius:4px;">PRO</span>
@@ -281,10 +34,10 @@
                 <i class="fa-solid fa-futbol"></i> الرياضة
             </button>
             <button class="nav-tab-btn" onclick="switchMainTab('jsSlot')" id="tabJsSlot">
-                <i class="fa-solid fa-gem text-gold"></i> لعبة Slot (الكود)
+                <i class="fa-solid fa-gem text-gold"></i> لعبة Slot
             </button>
             <button class="nav-tab-btn" onclick="switchMainTab('iframeCasino')" id="tabIframe">
-                <i class="fa-solid fa-gamepad text-gold"></i> ألعاب Pragmatic & Amatic
+                <i class="fa-solid fa-gamepad text-gold"></i> Pragmatic & Amatic
             </button>
         </div>
 
@@ -292,14 +45,14 @@
             <div class="balance-badge">
                 <i class="fa-solid fa-wallet"></i> <span id="userBalanceText">100.00</span> TND
             </div>
-            <button class="btn-deposit" onclick="alert('قسم الإيداع شغال!')">إيداع</button>
+            <button class="btn-deposit" onclick="showToast('قسم الإيداع شغال!')">إيداع</button>
         </div>
     </header>
 
-    <!-- Main Layout -->
+    <!-- Layout -->
     <div class="app-layout">
 
-        <!-- Sidebar Left -->
+        <!-- Sidebar -->
         <aside class="sidebar sidebar-left">
             <div class="sidebar-title"><i class="fa-solid fa-trophy"></i> الأقسام الرئيسية</div>
             <ul class="menu-list">
@@ -315,33 +68,22 @@
             </ul>
         </aside>
 
-        <!-- Main Content Grid -->
+        <!-- Main Content -->
         <main class="main-content">
 
-            <!-- ==========================================================================
-                 TAB 1: SPORTSBOOK VIEW
-                 ========================================================================== -->
+            <!-- TAB 1: SPORTS -->
             <div id="sportsView">
                 <div class="section-header"><i class="fa-solid fa-circle-dot" style="color:var(--accent-red);"></i> المباريات المباشرة</div>
-                
                 <div class="match-card">
                     <div style="display:flex; justify-content:space-between; font-size:13px; color:var(--text-muted);">
                         <span>الرابطة التونسية المحترفة</span>
                         <span style="color:var(--accent-red); font-weight:bold;">34' الشوط الأول</span>
                     </div>
-
                     <div class="match-teams">
-                        <div class="team">
-                            <img src="https://upload.wikimedia.org/wikipedia/fr/7/76/Esp%C3%A9rance_Sportive_de_Tunis.svg" alt="EST">
-                            <span>الترجي الرياضي</span>
-                        </div>
+                        <div class="team"><span>الترجي الرياضي</span></div>
                         <div style="font-size:22px; font-weight:900; color:var(--accent-gold);">1 - 0</div>
-                        <div class="team">
-                            <span>النجم الساحلي</span>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Etoile-du-sahel.svg" alt="ESS">
-                        </div>
+                        <div class="team"><span>النجم الساحلي</span></div>
                     </div>
-
                     <div class="odds-group">
                         <button class="odd-btn"><span>1 (الترجي)</span> <span style="color:var(--accent-green);">2.10</span></button>
                         <button class="odd-btn"><span>X (تعادل)</span> <span style="color:var(--accent-green);">3.10</span></button>
@@ -350,9 +92,7 @@
                 </div>
             </div>
 
-            <!-- ==========================================================================
-                 TAB 2: JS INTERACTIVE SLOT MACHINE GAME
-                 ========================================================================== -->
+            <!-- TAB 2: SLOT MACHINE -->
             <div id="jsSlotView" style="display: none;">
                 <div class="slot-container">
                     <h2 style="color: var(--accent-gold); font-size: 24px;">
@@ -360,47 +100,35 @@
                     </h2>
                     <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">ادور العجلات واكسب حتى 50x ضعف رهانتك!</p>
 
-                    <!-- Slot Reels Display -->
                     <div class="slot-reels-box">
                         <div class="reel" id="reel1">💎</div>
                         <div class="reel" id="reel2">7️⃣</div>
                         <div class="reel" id="reel3">🍒</div>
                     </div>
 
-                    <!-- Slot Controls -->
                     <div style="display: flex; gap: 12px; justify-content: center; align-items: center; max-width: 400px; margin: 0 auto;">
                         <input type="number" id="slotStakeInput" value="10" min="1" style="width: 100px; background: var(--bg-body); color: #fff; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); text-align: center; font-weight: bold;">
                         <button id="btnSpinSlot" onclick="spinSlotMachine()" style="flex: 1; background: var(--accent-gold); color: #000; padding: 12px; border-radius: var(--radius-sm); font-weight: 900; font-size: 16px; cursor: pointer;">
                             <i class="fa-solid fa-rotate"></i> تدوير العجلات (Spin)
                         </button>
                     </div>
-
-                    <div style="margin-top: 15px; font-size: 13px; color: var(--text-muted);">
-                        الجوائز: (3x 7️⃣ = 50x) | (3x متشابهة = 10x) | (2x متشابهة = 2x)
-                    </div>
                 </div>
             </div>
 
-            <!-- ==========================================================================
-                 TAB 3: PRAGMATIC / AMATIC IFRAME INTEGRATION VIEW
-                 ========================================================================== -->
+            <!-- TAB 3: IFRAME CASINO -->
             <div id="iframeCasinoView" style="display: none;">
                 <div class="iframe-container">
                     <div class="iframe-header">
                         <div>
                             <i class="fa-solid fa-crown text-gold"></i>
-                            <span style="font-weight: bold; margin-right: 8px;">משغيل الألعاب العالمية (iFrame Player)</span>
+                            <span style="font-weight: bold; margin-right: 8px;">مشغل الألعاب العالمية (iFrame Player)</span>
                         </div>
-
-                        <!-- Selector to switch Pragmatic / Amatic Demo Slots -->
                         <select onchange="changeIframeGame(this.value)" style="background: var(--bg-card); color: #fff; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border-color); cursor: pointer;">
                             <option value="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20olympus&lang=en&cur=USD">Pragmatic Play: Gates of Olympus</option>
                             <option value="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20sweetbonz&lang=en&cur=USD">Pragmatic Play: Sweet Bonanza</option>
                             <option value="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vswaysdogs&lang=en&cur=USD">Pragmatic Play: The Dog House Megaways</option>
                         </select>
                     </div>
-
-                    <!-- iFrame Screen -->
                     <div class="iframe-wrapper">
                         <iframe id="casinoIframe" src="https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?gameSymbol=vs20olympus&lang=en&cur=USD" allowfullscreen></iframe>
                     </div>
@@ -409,7 +137,7 @@
 
         </main>
 
-        <!-- Sidebar Right: Betslip -->
+        <!-- Betslip Right -->
         <aside class="betslip-widget">
             <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">
                 <h3><i class="fa-solid fa-ticket text-gold"></i> قسيمة الرهان</h3>
@@ -421,139 +149,10 @@
 
     </div>
 
-    <!-- Toast Notifications Container -->
+    <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
 
-    <!-- ==========================================================================
-         JAVASCRIPT LOGIC
-         ========================================================================== -->
-    <script>
-        // 1. STATE & BALANCES
-        const AppState = { balance: 100.00 };
-
-        function updateBalanceUI() {
-            document.getElementById('userBalanceText').textContent = AppState.balance.toFixed(2);
-        }
-
-        // 2. TOAST SYSTEM
-        function showToast(message) {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `<i class="fa-solid fa-circle-info text-gold"></i> <span>${message}</span>`;
-            container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-
-        // 3. TAB SWITCHER LOGIC
-        function switchMainTab(tab) {
-            document.getElementById('sportsView').style.display = 'none';
-            document.getElementById('jsSlotView').style.display = 'none';
-            document.getElementById('iframeCasinoView').style.display = 'none';
-
-            document.getElementById('tabSports').classList.remove('active');
-            document.getElementById('tabJsSlot').classList.remove('active');
-            document.getElementById('tabIframe').classList.remove('active');
-
-            if (tab === 'jsSlot') {
-                document.getElementById('jsSlotView').style.display = 'block';
-                document.getElementById('tabJsSlot').classList.add('active');
-            } else if (tab === 'iframeCasino') {
-                document.getElementById('iframeCasinoView').style.display = 'block';
-                document.getElementById('tabIframe').classList.add('active');
-            } else {
-                document.getElementById('sportsView').style.display = 'block';
-                document.getElementById('tabSports').classList.add('active');
-            }
-        }
-
-        // 4. JS SLOT MACHINE LOGIC
-        const slotSymbols = ['7️⃣', '💎', '🍒', '🍋', '🔔', '🍇', '⭐'];
-
-        function spinSlotMachine() {
-            const stakeInput = document.getElementById('slotStakeInput');
-            const stake = parseFloat(stakeInput.value) || 0;
-
-            if (stake <= 0 || stake > AppState.balance) {
-                showToast('رصيدك غير كافٍ للعب!');
-                return;
-            }
-
-            // الخصم من الرصيد
-            AppState.balance -= stake;
-            updateBalanceUI();
-
-            const reel1 = document.getElementById('reel1');
-            const reel2 = document.getElementById('reel2');
-            const reel3 = document.getElementById('reel3');
-            const btnSpin = document.getElementById('btnSpinSlot');
-
-            btnSpin.disabled = true;
-            reel1.classList.add('spinning');
-            reel2.classList.add('spinning');
-            reel3.classList.add('spinning');
-
-            // محاكاة حركة العجلات لمشاريع الكازينو
-            let counter = 0;
-            const spinInterval = setInterval(() => {
-                reel1.textContent = slotSymbols[Math.floor(Math.random() * slotSymbols.length)];
-                reel2.textContent = slotSymbols[Math.floor(Math.random() * slotSymbols.length)];
-                reel3.textContent = slotSymbols[Math.floor(Math.random() * slotSymbols.length)];
-                counter++;
-
-                if (counter > 15) {
-                    clearInterval(spinInterval);
-                    reel1.classList.remove('spinning');
-                    reel2.classList.remove('spinning');
-                    reel3.classList.remove('spinning');
-                    btnSpin.disabled = false;
-
-                    // النتيجة النهائية
-                    const s1 = slotSymbols[Math.floor(Math.random() * slotSymbols.length)];
-                    const s2 = slotSymbols[Math.floor(Math.random() * slotSymbols.length)];
-                    const s3 = slotSymbols[Math.floor(Math.random() * slotSymbols.length)];
-
-                    reel1.textContent = s1;
-                    reel2.textContent = s2;
-                    reel3.textContent = s3;
-
-                    // حساب الأرباح
-                    calculateSlotPayout(s1, s2, s3, stake);
-                }
-            }, 100);
-        }
-
-        function calculateSlotPayout(s1, s2, s3, stake) {
-            let winMultiplier = 0;
-
-            if (s1 === '7️⃣' && s2 === '7️⃣' && s3 === '7️⃣') {
-                winMultiplier = 50; // الجائزة الكبرى
-            } else if (s1 === s2 && s2 === s3) {
-                winMultiplier = 10; // 3 رموز متشابهة
-            } else if (s1 === s2 || s2 === s3 || s1 === s3) {
-                winMultiplier = 2;  // رمزان متشابهان
-            }
-
-            if (winMultiplier > 0) {
-                const winAmount = stake * winMultiplier;
-                AppState.balance += winAmount;
-                updateBalanceUI();
-                showToast(`🎉 مبروك! كسبت ${winAmount.toFixed(2)} TND (${winMultiplier}x)`);
-            } else {
-                showToast('حظاً موفقاً في الدورة القادمة!');
-            }
-        }
-
-        // 5. IFRAME GAME SWITCHER (PRAGMATIC / AMATIC)
-        function changeIframeGame(url) {
-            document.getElementById('casinoIframe').src = url;
-            showToast('جاري تحميل اللعبة الجديدة...');
-        }
-
-        // Clock Update
-        setInterval(() => {
-            document.getElementById('clockText').textContent = new Date().toLocaleTimeString('ar-TN') + ' (UTC+1)';
-        }, 1000);
-    </script>
+    <!-- ربط ملف JavaScript الخارجي -->
+    <script src="script.js"></script>
 </body>
 </html>
